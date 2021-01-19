@@ -32,6 +32,16 @@
        width: 100% ;
        text-align: center; 
       }    
+
+      img.dest-img{
+       -webkit-background-size: cover;
+       -moz-background-size: cover;
+       -o-background-size: cover;
+       background-size: cover;
+       height: 100%;
+       width: 100% ;
+       text-align: center; 
+      }
     </style>
     
     <!-- Custom styles for this template -->
@@ -64,87 +74,74 @@
 
 <main>
   <div class="position-relative overflow-hidden p-3 p-md-5 text-center portada">
-    <div class="col-md-5 p-lg-5 mx-auto my-5" style="background-color: #18191980!important;border-radius: 15px;">
+    <div class="col-md-5 p-lg-5 mx-auto my-5" style="background-color: #18191980!important;border-radius: 15px;width: 75%;">
       <h1 class="display-4 fw-normal text-white">Encontrá tu hogar</h1>
-      <p class="lead fw-normal text-white">Encontrá tu hogar ideal con tal solo ingresar una dirección, localidad o calle.</p>      
+      <p class="lead fw-normal text-white">Encontrá tu hogar ideal con tal solo ingresar una dirección, localidad o calle.</p>
+      
       <!-- Buscardor --->
+      <!--<a class="btn btn-outline-secondary" href="#">Coming soon</a>-->
       <div class="input-group mb-3">
+    <select id="operations" style="background-color: #0d6efd99" class="btn btn-primary">
+      <option data-name="Venta" value="1">Venta</option>
+            <option data-name="Alquiler" value="2">Alquiler</option>
+        </select>
+    <select id="property_types" style="background-color: #0d6efd99" class="btn btn-primary">
+      <option value="-1">Tipo de Propiedad</option>
+      <option data-name="Terreno" value="1">Terreno</option>
+      <option data-name="Departamento" value="2">Departamento</option>
+      <option data-name="Casa" value="3">Casa</option>
+      <option data-name="Locales" value="7">Locales</option>
+        </select>
         <input type="text" class="form-control form-control-lg" placeholder="Buscar por ubicación, dirección o calle" aria-label="Recipient's username" aria-describedby="button-addon2">
         <button class="btn btn-primary" type="button" id="button-addon2">Buscar</button>
       </div>
     </div>
   </div>
 
+ <div class="display-4 fw-normal text-black text-center">
+  <h2 class="display-5" style="padding: 30px;">Propiedades Destacadas</h2>
+</div>
   <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
     <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
       <div class="my-3 py-3">
-        <h2 class="display-5">Casas</h2>
-        <!--<p class="lead">And an even wittier subheading.</p>-->
+        <h2 class="display-5">PROF. SIMÓN AL 1400</h2>
+        <p class="lead">VENTA CASA 4 AMBIENTES EN VILLA BALLESTER</p>
       </div>
-      <div class="bg-light shadow-sm mx-auto" style="background: url('assets/img/casa.jpg') center; background-size: 100% 100%;width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>      
+      <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+    <img class="dest-img" src="assets/img/casa1.jpg">
+    </div>
     </div>
     <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
       <div class="my-3 p-3">
-        <h2 class="display-5">Departamentos</h2>
-        <!--<p class="lead">And an even wittier subheading.</p>-->
+        <h2 class="display-5">BAT. LA FLORIDA AL 1500</h2>
+        <p class="lead">VENTA PH 3 AMBIENTES EN VILLA ADELINA</p>
       </div>
-      <div class="bg-dark shadow-sm mx-auto" style="background: url('assets/img/depto.jpg') center;background-size: 100% 100%;width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+      <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+    <img class="dest-img" src="assets/img/ph1.jpg">
+    </div>
     </div>
   </div>
 
   <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
     <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
       <div class="my-3 p-3">
-        <h2 class="display-5">Cabañas</h2>
-        <!--<p class="lead">And an even wittier subheading.</p>-->
+        <h2 class="display-5">MIGUELETES AL 1600</h2>
+        <p class="lead">VENTA DEPARTAMENTO 3 AMBIENTES EN BELGRANO CHICO</p>
       </div>
-      <div class="bg-dark shadow-sm mx-auto" style="background: url('assets/img/caba.jpg') center;background-size: 100% 100%;width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+      <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+    <img class="dest-img" src="assets/img/casa2.jpg">
+    </div>
     </div>
     <div class="bg-primary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
       <div class="my-3 py-3">
-        <h2 class="display-5">Duplex</h2>
-        <!--<p class="lead">And an even wittier subheading.</p>-->
+        <h2 class="display-5">MELO AL 2600</h2>
+        <p class="lead">VENTA CHALET 6 AMBIENTES + DEP. EN FLORIDA MITRE</p>
       </div>
-      <div class="bg-light shadow-sm mx-auto" style="background: url('assets/img/duplex.jpg') center;background-size: 100% 100%;width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+      <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+    <img class="dest-img" src="assets/img/depa1.jpg">
+    </div>
     </div>
   </div>
-
-
-<!--
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-  </div>
-
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-  </div>
--->
 </main>
 
 <footer class="container py-5">
