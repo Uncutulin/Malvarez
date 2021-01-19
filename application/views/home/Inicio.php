@@ -1,10 +1,13 @@
 <!doctype html>
+<!--
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Catalogo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Nose">
 
-    <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -43,15 +46,12 @@
        text-align: center; 
       }
     </style>
-    
-    <!-- Custom styles for this template -->
     <link href="assets/css/product.css" rel="stylesheet">
   </head>
 
   <body>
 
 
-<!-- Menu -->
     <div>
       <header class="site-header sticky-top py-1">
         <nav class="container d-flex flex-column flex-md-row justify-content-between">
@@ -64,7 +64,7 @@
         </nav>
       </header>
     </div>
-
+-->
 <!-- Cuerpo -->
     <div>
       
