@@ -29,6 +29,18 @@
           font-size: 3.5rem;
         }
       }
+
+      .portada{
+   background: url('assets/img/puerto-madero.jpg') no-repeat fixed center;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+   height: 100%;
+   width: 100% ;
+   text-align: center;
+ 
+}
     </style>
 
     
@@ -53,14 +65,24 @@
 </header>
 
 <main>
-  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-    <div class="col-md-5 p-lg-5 mx-auto my-5">
-      <h1 class="display-4 fw-normal">Punny headline</h1>
-      <p class="lead fw-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple’s marketing pages.</p>
-      <a class="btn btn-outline-secondary" href="#">Coming soon</a>
+  <div class="position-relative overflow-hidden p-3 p-md-5 text-center portada">
+    <div class="col-md-5 p-lg-5 mx-auto my-5" style="background-color: #18191980!important;border-radius: 15px;">
+      <h1 class="display-4 fw-normal text-white">Encontrá tu hogar</h1>
+      <p class="lead fw-normal text-white">Encontrá tu hogar ideal con tal solo ingresar una dirección, localidad o calle.</p>
+      
+      <!-- Buscardor --->
+      <!--<a class="btn btn-outline-secondary" href="#">Coming soon</a>-->
+      <div class="input-group mb-3">
+        <input type="text" class="form-control form-control-lg" placeholder="Buscar por ubicación, dirección o calle" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button class="btn btn-primary" type="button" id="button-addon2">Buscar</button>
+      </div>
+
+
     </div>
+    <!--
     <div class="product-device shadow-sm d-none d-md-block"></div>
     <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+    -->
   </div>
 
   <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
