@@ -59,6 +59,9 @@ $route['catalogo'] = 'catalogo';
 
 $route['login'] = 'login';
 
+$route['propiedad'] = 'propiedad';
+$route['tipoPropiedad'] = 'tipoPropiedad';
+$route['users'] = 'usuario';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
