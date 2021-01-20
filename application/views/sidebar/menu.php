@@ -63,7 +63,8 @@
           </a>
           <a class="py-2 d-none d-md-inline-block" href="/<?=site_url('')?>">Inicio</a>
           <a class="py-2 d-none d-md-inline-block" href="/<?=site_url('catalogo')?>">Catalogo</a>
-          <a class="py-2 d-none d-md-inline-block" href="/<?=site_url('dashboard')?>">Iniciar Sesión</a>
+          <a class="py-2 d-none d-md-inline-block" href="/<?=site_url('login')?>">Iniciar Sesión</a>
+          <!--<a class="py-2 d-none d-md-inline-block" href="/<?=site_url('dashboard')?>">Iniciar Sesión</a>-->
         </nav>
       </header>
     </div>
