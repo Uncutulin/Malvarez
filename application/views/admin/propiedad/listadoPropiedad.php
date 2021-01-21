@@ -11,7 +11,7 @@
     </div>
 
     <section class="content">
-      <div class="container">    
+      <div class="">    
         <div class="card">
           <div class="card-header border-0">
             <div class="d-flex justify-content-between">

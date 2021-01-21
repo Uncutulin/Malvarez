@@ -7,24 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Nose">
 
-    <!-- Bootstrap core CSS -->
-    <link href="/<?=base_url('')?>/assets/css/bootstrap.min.css" rel="stylesheet">
-
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
       .portada{
        background: url('assets/img/puerto-madero.jpg') no-repeat fixed center;
        -webkit-background-size: cover;
@@ -46,16 +29,63 @@
        text-align: center; 
       }
     </style>
-    
-    <!-- Custom styles for this template -->
+
     <link href="/<?=base_url('')?>/assets/css/product.css" rel="stylesheet">
+
+    <link href="/<?=base_url('')?>/assets/css/bootstrap.min.css" rel="stylesheet">
   </head>
-
   <body>
+  
 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Ninth navbar example">
+    <div class="container-xl">
+      <a class="navbar-brand" href="#">Proyecto A</a>
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-<!-- Menu -->
-    <div>
+      <div class="navbar-collapse collapse" id="navbarsExample07XL" style="">
+        <ul class="navbar-nav" style="padding-left: 35%;">
+          <li class="nav-item active" style="padding-right: 100px;">
+            <a class="nav-link" aria-current="page" href="/<?=site_url('')?>">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="padding-right: 100px;" href="/<?=site_url('catalogo')?>">Catalogo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="padding-right: 100px;" href="/<?=site_url('login')?>" tabindex="-1">Iniciar Sesión</a>
+          </li>
+          <!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown07XL">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          -->
+        </ul>
+        <!--
+        <form>
+          <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+        </form>
+      -->
+      </div>
+    </div>
+  </nav>
+
+  
+    
+  
+
+   
+
+      
+  
+
+</body>
+      <!--
       <header class="site-header sticky-top py-1">
         <nav class="container d-flex flex-column flex-md-row justify-content-between">
           <a class="py-2" href="#" aria-label="Product">
@@ -65,9 +95,15 @@
           <a class="py-2 d-none d-md-inline-block" href="/<?=site_url('catalogo')?>">Catalogo</a>
           <a class="py-2 d-none d-md-inline-block" href="/<?=site_url('login')?>">Iniciar Sesión</a>
           <!--<a class="py-2 d-none d-md-inline-block" href="/<?=site_url('dashboard')?>">Iniciar Sesión</a>-->
-        </nav>
+        <!--</nav>
       </header>
+    -->
     </div>
 
 <!-- Cuerpo -->
+
+
+
+
     
+ <script src="/<?=base_url('')?>/assets/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
