@@ -81,11 +81,11 @@
       <!-- Buscardor --->
       <!--<a class="btn btn-outline-secondary" href="#">Coming soon</a>-->
       <div class="input-group mb-3">
-    <select id="operations" style="background-color: #0d6efd99" class="btn btn-primary">
+    <select id="operations" style="background-color: #d91a1ba1" class="btn btn-primary">
       <option data-name="Venta" value="1">Venta</option>
             <option data-name="Alquiler" value="2">Alquiler</option>
         </select>
-    <select id="property_types" style="background-color: #0d6efd99" class="btn btn-primary">
+    <select id="property_types" style="background-color: #d91a1ba1" class="btn btn-primary">
       <option value="-1">Tipo de Propiedad</option>
       <option data-name="Terreno" value="1">Terreno</option>
       <option data-name="Departamento" value="2">Departamento</option>

@@ -28,6 +28,13 @@
        width: 100% ;
        text-align: center; 
       }
+	  
+	  .ingresar {
+		background: #d91a1b;
+		border-radius: 12px;
+		max-width: 100px;
+		white-space: nowrap;
+		}
     </style>
 
     <link href="/<?=base_url('')?>/assets/css/product.css" rel="stylesheet">
@@ -37,9 +44,11 @@
   <body>
   
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Ninth navbar example">
+  <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Ninth navbar example">
     <div class="container-xl">
-      <a class="navbar-brand" href="#">Proyecto A</a>
+      <!--a class="navbar-brand" href="#">Proyecto A</a-->
+	  <a href="/sitio/"><img id="logo" src="/<?=base_url('')?>/assets/img/logo.png"></a>
+	  
       <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -53,7 +62,7 @@
             <a class="nav-link" style="padding-right: 100px;" href="/<?=site_url('catalogo')?>">Catalogo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="padding-right: 100px;" href="/<?=site_url('login')?>" tabindex="-1">Iniciar Sesión</a>
+            <a class="ingresar nav-link" style="padding-right: 100px;color: #fff;" href="/<?=site_url('login')?>" tabindex="-1">Iniciar Sesión</a>
           </li>
           <!--
           <li class="nav-item dropdown">
