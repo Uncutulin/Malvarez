@@ -66,7 +66,7 @@
 
 
           
-          <li class="nav-header">Administador</li>
+          <li class="nav-header">Administrador</li>
           <li class="nav-item">
             <a href="/<?=site_url('users')?>" class="nav-link">
               <i class="nav-icon far fa-user"></i>
