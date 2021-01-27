@@ -1,77 +1,7 @@
 <!doctype html>
-<!--
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Catalogo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Nose">
-
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
-      .portada{
-       background: url('assets/img/puerto-madero.jpg') no-repeat fixed center;
-       -webkit-background-size: cover;
-       -moz-background-size: cover;
-       -o-background-size: cover;
-       background-size: cover;
-       height: 100%;
-       width: 100% ;
-       text-align: center; 
-      }    
-
-      img.dest-img{
-       -webkit-background-size: cover;
-       -moz-background-size: cover;
-       -o-background-size: cover;
-       background-size: cover;
-       height: 100%;
-       width: 100% ;
-       text-align: center; 
-      }
-    </style>
-    <link href="assets/css/product.css" rel="stylesheet">
-  </head>
-
-  <body>
-
-
-    <div>
-      <header class="site-header sticky-top py-1">
-        <nav class="container d-flex flex-column flex-md-row justify-content-between">
-          <a class="py-2" href="#" aria-label="Product">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
-          </a>
-          <a class="py-2 d-none d-md-inline-block" href="/<?=site_url('')?>">Inicio</a>
-          <a class="py-2 d-none d-md-inline-block" href="/<?=site_url('')?>">Catalogo</a>
-          <a class="py-2 d-none d-md-inline-block" href="/<?=site_url('dashboard')?>">Iniciar Sesión</a>
-        </nav>
-      </header>
-    </div>
--->
-<!-- Cuerpo -->
     <div>
       
-    </div>
-    
-
-
+    </div>    
 <main>
   <div class="position-relative overflow-hidden p-3 p-md-5 text-center portada">
     <div class="col-md-5 p-lg-5 mx-auto my-5" style="background-color: #18191980!important;border-radius: 15px;width: 75%;">
@@ -81,22 +11,25 @@
       <!-- Buscardor --->
       <!--<a class="btn btn-outline-secondary" href="#">Coming soon</a>-->
       <div class="input-group mb-3">
-    <select id="operations" style="background-color: #d91a1ba1" class="btn btn-primary">
+    <select id="operations" style="background-color: #d91a1ba1" class="btn btn-danger">
       <option data-name="Venta" value="1">Venta</option>
             <option data-name="Alquiler" value="2">Alquiler</option>
         </select>
-    <select id="property_types" style="background-color: #d91a1ba1" class="btn btn-primary">
-      <option value="-1">Tipo de Propiedad</option>
-      <option data-name="Terreno" value="1">Terreno</option>
-      <option data-name="Departamento" value="2">Departamento</option>
-      <option data-name="Casa" value="3">Casa</option>
-      <option data-name="Locales" value="7">Locales</option>
-        </select>
+    <select id="property_types" style="background-color: #d91a1ba1" class="btn btn-danger">
+      <option class="red-input" value="-1" selected disabled="disabled">Tipo de Propiedad</option>
+      <option class="red-input" value="0">Todas</option>
+      <?php
+        foreach ($listadoTipoPropiedad as $key => $TipoPropiedades) {
+          echo '<option class="red-input" value="'.$TipoPropiedades->Id.'">'.$TipoPropiedades->Descripcion.'</option>';
+        }
+      ?>
+    </select>
         <input type="text" class="form-control form-control-lg" placeholder="Buscar por ubicación, dirección o calle" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-primary" type="button" id="button-addon2">Buscar</button>
+        <button class="btn btn-danger" type="button" id="button-addon2">Buscar</button>
       </div>
     </div>
   </div>
+
 
  <div class="display-4 fw-normal text-black text-center">
   <h2 class="display-5" style="padding: 30px;">Propiedades Destacadas</h2>
