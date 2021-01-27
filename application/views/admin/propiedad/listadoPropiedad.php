@@ -25,31 +25,43 @@
             <table class="table" id="listadoPropiedades">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
+                  <th scope="col">Tipo Propiedad</th>
+                  <th scope="col">Barrio</th>
+                  <th scope="col">Ubicación</th>
+                  <th scope="col">Servicios</th>
+                  <th scope="col">Ambientes</th>
+                  <th scope="col">Dormitorios</th>
+                  <th scope="col">Baños</th>
+                  <th scope="col">Cocheras</th>
+                  <th scope="col">Pisos</th>
+                  <th scope="col">Antiguedad</th>
+                  <th scope="col">Situación</th>
+                  <th scope="col">Expensas</th>
+                  <th scope="col">Orientación</th>
+                  <th scope="col">Disposición</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Estado</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">1</th>
                   <td>Mark</td>
                   <td>Otto</td>
                   <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry the Bird</td>
-                  <td>@twitter</td>
-                  <td>@twitter</td>
-                </tr>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                  <td>@mdo</td>
+                </tr>                
               </tbody>
             </table>
          </div>
@@ -59,27 +71,10 @@
   </div>
 
 
-
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Nueva Propiedad</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
-      </div>
-    </div>
-  </div>
-</div>
+<?=$modal?>
+
+
 
 <script>
 $(document).ready(function () {
