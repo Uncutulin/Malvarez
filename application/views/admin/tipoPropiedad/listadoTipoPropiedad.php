@@ -36,14 +36,20 @@
                       echo "<tr>";
                       echo "<td>".$value->Descripcion."</td>";
                       echo '<td> 
-                        <button type="button" onclick="edit('.$value->NroTipo.')" class="btn btn-warning btn-sm pop" data-toggle="popover" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                        <button type="button" onclick="edit('.$value->Id.')" class="btn btn-warning btn-sm pop" data-toggle="popover" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
                           <i class="fas fa-pen"></i>
                         </button>
-                        &nbsp;
-                        <button type="button" class="btn btn-danger btn-sm">
-                          <i class="fas fa-trash-alt"></i>
-                        </button>
-                      </td>';
+                        &nbsp;';
+                        if($value->Activo==1){
+                          echo '<button type="button" class="btn btn-danger btn-sm" onclick="delet('.$value->Id.','.$value->Activo.')">
+                                  <i class="fas fa-trash-alt"></i>
+                                </button>';
+                        }elseif($value->Activo==0){
+                          echo '<button type="button" class="btn btn-success btn-sm" onclick="delet('.$value->Id.','.$value->Activo.')">
+                                  <i class="fas fa-check"></i>
+                                </button>';
+                        }
+                        echo '</td>';
                     }
                   ?> 
                 </tr>               
@@ -68,8 +74,6 @@ $(document).ready(function () {
           'url': '<?=base_url('../../assets/js/arg.json')?>'            
         }
     });
-
-
 });
 
 
@@ -80,12 +84,12 @@ $('#addTipoPropiedad').click(function(){
     $('#exampleModal').modal('show');
 })
 
+
 function edit(id){
   $.ajax({
     url: '<?=site_url()?>/../../getTipoPropiedad/'+id,
     type: "GET",
     success: function(respuesta) {
-      console.log(respuesta);
       $('#nombre').val(respuesta);
       $('#id').val(id);
       $('#exampleModal').modal('show');
@@ -95,7 +99,23 @@ function edit(id){
       }
   });
 }
-//$('.pop').popover('hide')
+
+
+function delet(id, activo){
+  $.ajax({
+    url: '<?=site_url()?>/../../putEstadoTipoPropiedad/'+id,
+    type: "POST",
+    data: {Activo : activo},
+    success: function(respuesta) {
+      if(respuesta==1){
+         location.reload();
+      }
+    },
+    error: function() {
+          console.log("No se ha podido obtener la información");
+      }
+  });
+}
 </script>
 
 
