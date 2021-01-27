@@ -71,11 +71,6 @@
   </div>
 
 
-<!-- Modal -->
-<?=$modal?>
-
-
-
 <script>
 $(document).ready(function () {
     $('#listadoPropiedades').DataTable({
