@@ -7,7 +7,7 @@ class TipoPropiedad extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('TipoPropiedadModel');
-		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTipoPropiedad();
+		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades();
 		$datos['listadoTipoPropiedad'] = $listadoTipoPropiedad;
 		/*
 		echo "<pre>";
@@ -20,6 +20,53 @@ class TipoPropiedad extends CI_Controller {
 		$this->load->view('admin/tipoPropiedad/listadoTipoPropiedad',$datos);
 		$this->load->view('admin/tipoPropiedad/modalTipoPropiedad');
 		$this->load->view('admin/footer');
+	}
+
+
+	public function postTipoPropiedad(){
+
+		$this->load->model('TipoPropiedadModel');
+		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : NULL;
+		$id = isset($_POST['id']) ? $_POST['id'] : NULL;
+		
+		if($nombre!=NULL)
+		{
+			$data = array(
+        		'Descripcion' => $nombre,
+			);
+			if($id!=NULL)
+			{
+				$this->TipoPropiedadModel->putTipoPropiedad($id, $data);		
+			}else{
+				$this->TipoPropiedadModel->postTipoPropiedad($data);				
+			}
+		}
+		redirect("../../tipoPropiedad");	
+	}
+
+	public function getTipoPropiedad($id){
+		$this->load->model('TipoPropiedadModel');
+		$TipoPropiedad=NULL;
+		if($id!=NULL){			
+			$TipoPropiedad = $this->TipoPropiedadModel->getTipoPropiedad($id);			
+		}
+		//var_dump($TipoPropiedad);
+		echo $TipoPropiedad->Descripcion;
+	}
+
+	public function putTipoPropiedad(){
+		
+		$this->load->model('TipoPropiedadModel');
+		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : NULL;
+
+		if($nombre!=NULL){
+			$data = array(
+        	'Descripcion' => $nombre,
+			);
+			$this->TipoPropiedadModel->putTipoPropiedad($data);	
+			redirect("../../tipoPropiedad");
+		}
+		
 	}
 
 }

@@ -8,19 +8,21 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">      
-        <form>          
+      <form action="<?=site_url('../../insertPropiedad')?>" method="POST">  
+      <div class="modal-body">                     
+            <input type="text" class="form-control" name="id" id="id" placeholder="id" hidden="hidden">
             <div class="form-group">
-              <label for="exampleInputEmail1">Nombre</label>
-              <input type="text" class="form-control" id="Nombre" placeholder="Nombre">
+              <label for="nombre">Nombre</label>
+              <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
             </div>
-          <!-- /.card-body -->              
-        </form>
+          <!-- /.card-body -->            
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
       </div>
+      </form>
     </div>
   </div>
 </div>

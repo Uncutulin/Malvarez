@@ -60,7 +60,15 @@ $route['catalogo'] = 'catalogo';
 $route['login'] = 'login';
 
 $route['propiedad'] = 'propiedad';
+
+
+//Tipo Propiedad Rutas
 $route['tipoPropiedad'] = 'tipoPropiedad';
+$route['insertPropiedad'] = 'tipoPropiedad/postTipoPropiedad';
+$route['getTipoPropiedad/(:num)'] = 'tipoPropiedad/getTipoPropiedad/$1';
+
+
+
 $route['users'] = 'usuario';
 
 $route['404_override'] = '';

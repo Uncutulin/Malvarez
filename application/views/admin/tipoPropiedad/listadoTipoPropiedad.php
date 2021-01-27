@@ -17,7 +17,7 @@
             <div class="d-flex justify-content-between">
               <h3 class="card-title">Listado Tipos de Propiedades</h3>
               <a href="javascript:void(0);">
-                <button type="button" class="btn btn-success btn-sm float-right" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i> Nueva</button>
+                <button type="button" class="btn btn-success btn-sm float-right" id="addTipoPropiedad"><i class="fas fa-plus"></i> Nueva</button>
               </a>
             </div>
           </div>
@@ -30,23 +30,22 @@
                   <th scope="col">Acciones</th>
                 </tr>
               </thead>
-              <tbody>
-                
+              <tbody>                
                  <?php
                     foreach ($listadoTipoPropiedad as $key => $value) {
                       echo "<tr>";
                       echo "<td>".$value->Descripcion."</td>";
-                      echo '<td> <button type="button" class="btn btn-warning btn-sm pop" data-toggle="popover" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-                        <i class="fas fa-pen"></i>
-                      </button>
-                      &nbsp;
-                      <button type="button" class="btn btn-danger btn-sm">
-                        <i class="fas fa-trash-alt"></i>
-                      </button>
-                    </td>';
+                      echo '<td> 
+                        <button type="button" onclick="edit('.$value->NroTipo.')" class="btn btn-warning btn-sm pop" data-toggle="popover" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                          <i class="fas fa-pen"></i>
+                        </button>
+                        &nbsp;
+                        <button type="button" class="btn btn-danger btn-sm">
+                          <i class="fas fa-trash-alt"></i>
+                        </button>
+                      </td>';
                     }
-                  ?>            
-                  
+                  ?> 
                 </tr>               
               </tbody>
             </table>
@@ -69,8 +68,33 @@ $(document).ready(function () {
           'url': '<?=base_url('../../assets/js/arg.json')?>'            
         }
     });
+
+
 });
 
+
+
+$('#addTipoPropiedad').click(function(){
+    $('#nombre').val("");
+    $('#id').val("");
+    $('#exampleModal').modal('show');
+})
+
+function edit(id){
+  $.ajax({
+    url: '<?=site_url()?>/../../getTipoPropiedad/'+id,
+    type: "GET",
+    success: function(respuesta) {
+      console.log(respuesta);
+      $('#nombre').val(respuesta);
+      $('#id').val(id);
+      $('#exampleModal').modal('show');
+    },
+    error: function() {
+          console.log("No se ha podido obtener la información");
+      }
+  });
+}
 //$('.pop').popover('hide')
 </script>
 
