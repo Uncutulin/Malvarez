@@ -58,6 +58,7 @@ $route['dashboard'] = 'admin';
 $route['catalogo'] = 'catalogo';
 
 $route['login'] = 'login';
+$route['validar'] = 'login/validarLogin';
 
 $route['propiedad'] = 'propiedad';
 
