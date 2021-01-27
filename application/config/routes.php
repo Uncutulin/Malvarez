@@ -66,6 +66,7 @@ $route['propiedad'] = 'propiedad';
 $route['tipoPropiedad'] = 'tipoPropiedad';
 $route['insertPropiedad'] = 'tipoPropiedad/postTipoPropiedad';
 $route['getTipoPropiedad/(:num)'] = 'tipoPropiedad/getTipoPropiedad/$1';
+$route['putEstadoTipoPropiedad/(:num)'] = 'tipoPropiedad/putEnabledDisabledTipoPropiedad/$1';
 
 
 

@@ -14,7 +14,7 @@ class TipoPropiedadModel extends CI_Model {
 	public function getTipoPropiedad($id)
 	{
 		$this->load->database();
-        $query = $this->db->get_where('tipospropiedades', array('NroTipo' => $id));
+        $query = $this->db->get_where('tipospropiedades', array('Id' => $id));
         return $query->result()[0];
 	}
 
@@ -27,8 +27,22 @@ class TipoPropiedadModel extends CI_Model {
 	public function putTipoPropiedad($id , $data)
 	{
 		$this->load->database();
-        $this->db->where('NroTipo', $id);
+        $this->db->where('Id', $id);
 		$this->db->update('tipospropiedades', $data);
+	}
+
+	public function disabledTipoPropiedad($id)
+	{
+		$this->load->database();
+        $this->db->where('Id', $id);
+		$this->db->update('tipospropiedades', array('Activo' =>0));
+	}
+
+	public function enabledTipoPropiedad($id)
+	{
+		$this->load->database();
+        $this->db->where('Id', $id);
+		$this->db->update('tipospropiedades', array('Activo' =>1));
 	}
 
 

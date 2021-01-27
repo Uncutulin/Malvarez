@@ -69,4 +69,20 @@ class TipoPropiedad extends CI_Controller {
 		
 	}
 
+	public function putEnabledDisabledTipoPropiedad($id){
+		
+		$this->load->model('TipoPropiedadModel');
+		$activo = isset($_POST['Activo']) ? $_POST['Activo'] : NULL;
+		if($activo!=NULL){
+			if($activo==1){
+				$this->TipoPropiedadModel->disabledTipoPropiedad($id);	
+			}elseif($activo==0){
+				$this->TipoPropiedadModel->enabledTipoPropiedad($id);	
+			}
+			echo true;
+		}
+		echo false;
+		
+	}
+
 }
