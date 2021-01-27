@@ -4,9 +4,12 @@ class TipoPropiedadModel extends CI_Model {
 
 	
 
-	public function getTiposPropiedades()
+	public function getTiposPropiedades($filtroActivo = false)
 	{
 		$this->load->database();
+		if($filtroActivo){
+        	$this->db->where('Activo', 1);
+        }
         $query = $this->db->get('tipospropiedades');
         return $query->result();
 	}

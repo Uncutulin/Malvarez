@@ -9,11 +9,6 @@ class TipoPropiedad extends CI_Controller {
 		$this->load->model('TipoPropiedadModel');
 		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades();
 		$datos['listadoTipoPropiedad'] = $listadoTipoPropiedad;
-		/*
-		echo "<pre>";
-		var_dump($listadoTipoPropiedad);
-		echo "</pre>";die;
-		*/
 		$this->load->view('admin/header');
 		$this->load->view('admin/sidebar');		
 		$this->load->view('admin/menu');

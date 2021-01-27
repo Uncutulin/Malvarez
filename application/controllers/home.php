@@ -7,7 +7,7 @@ class Home extends CI_Controller {
 	{
 		$this->load->model('TipoPropiedadModel');
 
-		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades();
+		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades(true);
 		$datos['listadoTipoPropiedad'] = $listadoTipoPropiedad;
 
 		$this->load->view('sidebar/menu');
