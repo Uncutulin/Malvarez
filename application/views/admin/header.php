@@ -14,4 +14,6 @@
 
   <script src="/<?=base_url('assets/js/jquery.dataTables.min.js')?>"></script>
 
+<script src="/<?=base_url('plugins/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
+
 </head>

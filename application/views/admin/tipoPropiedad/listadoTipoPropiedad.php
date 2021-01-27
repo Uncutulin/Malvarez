@@ -25,22 +25,28 @@
             <table class="table" id="listadoTipoPropiedades">
               <thead>
                 <tr>
+                 
                   <th scope="col">Nombre</th>
                   <th scope="col">Acciones</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>                
-                  <td>Otto</td>
-                  <td>
-                    <button type="button" class="btn btn-warning">
-                      <i class="fas fa-edit"></i>
-                    </button>
-                    &nbsp;
-                    <button type="button" class="btn btn-danger">
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                  </td>
+                
+                 <?php
+                    foreach ($listadoTipoPropiedad as $key => $value) {
+                      echo "<tr>";
+                      echo "<td>".$value->Descripcion."</td>";
+                      echo '<td> <button type="button" class="btn btn-warning btn-sm pop" data-toggle="popover" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                        <i class="fas fa-pen"></i>
+                      </button>
+                      &nbsp;
+                      <button type="button" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </td>';
+                    }
+                  ?>            
+                  
                 </tr>               
               </tbody>
             </table>
@@ -64,6 +70,8 @@ $(document).ready(function () {
         }
     });
 });
+
+//$('.pop').popover('hide')
 </script>
 
 
