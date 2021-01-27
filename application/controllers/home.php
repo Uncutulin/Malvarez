@@ -5,6 +5,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
+		$this->session->sess_destroy();
 		$this->load->model('TipoPropiedadModel');
 
 		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades(true);

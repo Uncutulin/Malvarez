@@ -14,12 +14,13 @@
         <div class="image">
           <img src="/<?=base_url('dist/img/user2-160x160.jpg')?>" class="img-circle elevation-2" alt="User Image">
         </div>
-        <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+        <div class="info">          
+            <?php if (isset($this->session->login)) {
+              echo '<a class="d-block">'.$this->session->email.'</a>';             
+              //echo "<a>".$this->session->email."</a>";              
+            } ?>   
         </div>
       </div>
-
-
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -78,11 +79,12 @@
          
           <li class="nav-header">Niveles</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?=base_url('/../..')?>" class="nav-link">
               <i class="nav-icon far fa-circle text-danger"></i>
-              <p class="text">Important</p>
+              <p class="text">Cerrar Sesión</p>
             </a>
           </li>
+          <!--
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle text-warning"></i>
@@ -95,6 +97,7 @@
               <p>Informational</p>
             </a>
           </li>
+        -->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
