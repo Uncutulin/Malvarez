@@ -11,8 +11,8 @@
         <div class="modal-body">  
           <input type="text" class="form-control" name="id" id="id" placeholder="id" hidden="hidden">
           <div class="form-group">
-            <label for="nombre" >Email</label>
-            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" required>
+            <label for="email">Email</label>
+            <input type="text" class="form-control" name="email" id="email" placeholder="Email" required>
             <!--<div class="valid-feedback">Valido.</div>-->
             <div class="invalid-feedback">El campo esta vacio.</div>
           </div>  

@@ -19,13 +19,14 @@ class Usuario extends CI_Controller {
 	public function postUsuario(){
 
 		$this->load->model('UsuarioModel');
-		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : NULL;
+		$email = isset($_POST['email']) ? $_POST['email'] : NULL;
 		$id = isset($_POST['id']) ? $_POST['id'] : NULL;
-		
-		if($nombre!=NULL)
+		print_r($email);
+		print_r($id);
+		if($email!=NULL)
 		{
 			$data = array(
-        		'Descripcion' => $nombre,
+        		'email' => $email,
 			);
 			if($id!=NULL)
 			{
@@ -44,17 +45,17 @@ class Usuario extends CI_Controller {
 			$Usuario = $this->UsuarioModel->getUsuario($id);			
 		}
 		//var_dump($Usuario);
-		echo $Usuario->Descripcion;
+		echo $Usuario->Email;
 	}
 
 	public function putUsuario(){
 		
 		$this->load->model('UsuarioModel');
-		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : NULL;
+		$email = isset($_POST['Email']) ? $_POST['Email'] : NULL;
 
-		if($nombre!=NULL){
+		if($email!=NULL){
 			$data = array(
-        	'Descripcion' => $nombre,
+        	'Email' => $email,
 			);
 			$this->UsuarioModel->putUsuario($data);	
 			redirect("../../Usuario");
