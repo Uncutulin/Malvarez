@@ -9,10 +9,10 @@ class Home extends CI_Controller {
 		$this->load->model('TipoPropiedadModel');
 
 		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades(true);
-		$datos['listadoTipoPropiedad'] = $listadoTipoPropiedad;
+		$data['listadoTipoPropiedad'] = $listadoTipoPropiedad;
 
 		$this->load->view('sidebar/menu');
-		$this->load->view('home/inicio', $datos);
+		$this->load->view('home/inicio', $data);
 	}
 
 }
