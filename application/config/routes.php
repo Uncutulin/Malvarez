@@ -49,9 +49,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
 
-$route['admin'] = 'Home';
+$route['default_controller'] = 'home';
+
+/* Dashboard - Administración */
+$route['dashboard'] = 'admin';
+
+$route['catalogo'] = 'catalogo';
+
+$route['login'] = 'login';
+$route['validar'] = 'login/validarLogin';
+
+$route['propiedad'] = 'propiedad';
+
+
+//Tipo Propiedad Rutas
+$route['tipoPropiedad'] = 'tipoPropiedad';
+$route['insertPropiedad'] = 'tipoPropiedad/postTipoPropiedad';
+$route['getTipoPropiedad/(:num)'] = 'tipoPropiedad/getTipoPropiedad/$1';
+$route['putEstadoTipoPropiedad/(:num)'] = 'tipoPropiedad/putEnabledDisabledTipoPropiedad/$1';
+
+$route['users'] = 'usuario';
+$route['insertUsuario'] = 'usuario/postUsuario';
+$route['getUsuario/(:num)'] = 'usuario/getUsuario/$1';
+$route['putEstadoUsuario/(:num)'] = 'usuario/putEnabledDisabledUsuario/$1';
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
