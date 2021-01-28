@@ -17,39 +17,47 @@
             <div class="d-flex justify-content-between">
               <h3 class="card-title">Listado de Usuarios</h3>
               <a href="javascript:void(0);">
-                <button type="button" class="btn btn-success btn-sm float-right" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i> Nuevo</button>
+                <button type="button" class="btn btn-success btn-sm float-right" id="addUsuario"><i class="fas fa-plus"></i> Nueva</button>
               </a>
             </div>
           </div>
           <div class="card-body"> 
-            <table class="table" id="listadoPropiedades">
+            <table class="table" id="listadoUsuarios">
               <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
+                <tr>     
+				  <th scope="col">Nombre</th>
+                  <th scope="col">Email</th>
+				  <th scope="col">Teléfono</th>
+				  <th scope="col">Fecha Creación</th>
+                  <th scope="col">Acciones</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry the Bird</td>
-                  <td>@twitter</td>
-                  <td>@twitter</td>
-                </tr>
+              <tbody>                
+                 <?php
+				   foreach ($listadoUsuario as $key => $value) {
+                      echo "<tr>";
+					  echo "<td>".$value->Nombre."</td>";
+                      echo "<td>".$value->Email."</td>";
+					  echo "<td>".$value->Tel."</td>";
+					  echo "<td>".$value->Fecha."</td>";
+                      echo '<td> 
+                        <button type="button" onclick="edit('.$value->Id.')" class="btn btn-warning btn-sm pop" data-toggle="popover">
+                          <i class="fas fa-pen"></i>
+                        </button>
+                        &nbsp;';
+                        if($value->Activo==1){
+                          echo '<button type="button" class="btn btn-danger btn-sm" onclick="delet('.$value->Id.','.$value->Activo.')">
+                                  <i class="fas fa-trash-alt"></i>
+                                </button>';
+                        }elseif($value->Activo==0){
+                          echo '<button type="button" class="btn btn-success btn-sm" onclick="delet('.$value->Id.','.$value->Activo.')">
+                                  <i class="fas fa-check"></i>
+                                </button>';
+                        }
+                        echo '</td>';
+						echo '</tr>';
+                    }
+                  ?>            
               </tbody>
             </table>
          </div>
@@ -60,15 +68,52 @@
 
 <script>
 $(document).ready(function () {
-    $('#listadoPropiedades').DataTable({
+    $('#listadoUsuarios').DataTable({
         "language": {
           'url': '<?=base_url('../../assets/js/arg.json')?>'            
         }
     });
 });
+
+$('#addUsuario').click(function(){
+    $('#nombre').val("");
+    $('#id').val("");
+    $('#exampleModal').modal('show');
+})
+
+
+function edit(id){
+  $.ajax({
+    url: '<?=site_url()?>/../../getUsuario/'+id,
+    type: "GET",
+    success: function(respuesta) {
+      $('#nombre').val(respuesta);
+      $('#id').val(id);
+      $('#exampleModal').modal('show');
+    },
+    error: function() {
+          console.log("No se ha podido obtener la información");
+      }
+  });
+}
+
+
+function delet(id, activo){
+  $.ajax({
+    url: '<?=site_url()?>/../../putEstadoUsuario/'+id,
+    type: "POST",
+    data: {Activo : activo},
+    success: function(respuesta) {
+      if(respuesta==1){
+         location.reload();
+      }
+    },
+    error: function() {
+          console.log("No se ha podido obtener la información");
+      }
+  });
+}
 </script>
-
-
 
 
 

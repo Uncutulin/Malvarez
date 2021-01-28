@@ -50,9 +50,9 @@
                                 </button>';
                         }
                         echo '</td>';
+						echo '</tr>';
                     }
-                  ?> 
-                </tr>               
+                  ?>                 
               </tbody>
             </table>
          </div>

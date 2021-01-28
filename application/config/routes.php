@@ -69,9 +69,11 @@ $route['insertPropiedad'] = 'tipoPropiedad/postTipoPropiedad';
 $route['getTipoPropiedad/(:num)'] = 'tipoPropiedad/getTipoPropiedad/$1';
 $route['putEstadoTipoPropiedad/(:num)'] = 'tipoPropiedad/putEnabledDisabledTipoPropiedad/$1';
 
-
-
 $route['users'] = 'usuario';
+$route['insertUsuario'] = 'usuario/postUsuario';
+$route['getUsuario/(:num)'] = 'usuario/getUsuario/$1';
+$route['putEstadoUsuario/(:num)'] = 'usuario/putEnabledDisabledUsuario/$1';
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
