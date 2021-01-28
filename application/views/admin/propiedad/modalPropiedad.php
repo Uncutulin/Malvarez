@@ -1,3 +1,7 @@
+
+<script src="<?=base_url('/../../assets/js/dropzone.js')?>"></script>
+<link rel="stylesheet" type="text/css" href="<?=base_url('/../../assets/css/dropzone.css')?>">
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   
   <div class="modal-dialog modal-xl" role="document">
@@ -25,14 +29,14 @@
               </div>
             <div class="col-4">
               <div class="form-group">
-                <label for="exampleInputPassword1">Nro Barrio</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="barrio">Nro Barrio</label>
+                <input type="text" class="form-control" id="barrio" name="barrio" placeholder="Barrio">
               </div>
             </div>
             <div class="col-4">
               <div class="form-group">
                 <label for="ubicacion">Ubicación</label>
-                <input type="email" class="form-control" id="ubicacion" name="ubicacion" placeholder="Ubicación">
+                <input type="text" class="form-control" id="ubicacion" name="ubicacion" placeholder="Ubicación">
               </div>
             </div>
           </div>
@@ -96,14 +100,20 @@
             
             <div class="col-4">
               <div class="form-group">
-                <label for="exampleInputPassword1">Situación</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="situacion">Situación</label>
+                <input type="text" class="form-control" id="situacion" name="situacion" placeholder="Situación">
               </div>
             </div>
             <div class="col-4">
               <div class="form-group">
-                <label for="exampleInputEmail1">Expensas</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                <label for="expensas">Expensas</label>
+                <input type="text" class="form-control" id="expensas" name="expensas" placeholder="Expensas">
+              </div>
+            </div>
+             <div class="col-4">
+              <div class="form-group">
+                <label for="orientacion">Orientación</label>
+                <input type="text" class="form-control" id="orientacion" name="orientacion" placeholder="Orientación">
               </div>
             </div>
           </div>
@@ -112,33 +122,28 @@
 
 
           <div class="row">
+           
             <div class="col-4">
               <div class="form-group">
-                <label for="exampleInputPassword1">Orientación</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                <label for="disposicion">Disposición</label>
+                <input type="text" class="form-control" id="disposicion" name="disposicion" placeholder="Disposición">
               </div>
             </div>
             <div class="col-4">
               <div class="form-group">
-                <label for="exampleInputPassword1">Disposición</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="estado">Estado</label>
+                <input type="text" class="form-control" id="estado" name="estado" placeholder="Estado">
               </div>
             </div>
             <div class="col-4">
               <div class="form-group">
-                <label for="exampleInputEmail1">Descripción</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                <label for="descripcion">Descripción</label>
+                <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción">
               </div>
             </div>
           </div>
 
-          
-          <div class="form-group">
-            <label for="exampleInputEmail1">Estado</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-          </div>
-
-
+          <!--
             <div class="form-group">
               <label for="exampleInputFile">File input</label>
               <div class="input-group">
@@ -148,8 +153,16 @@
                 </div>
               </div>
             </div>
-          <!-- /.card-body -->              
-        </form>
+          -->
+          <!-- /.card-body -->      
+          <div class="row">
+            <div class="col-12">
+              <form action="/upload-target" class="dropzone dz-clickable"><div class="dz-default dz-message"><button class="dz-button" type="button">Drop files here to upload</button></div></form>
+              <input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+            </div>
+          </div>
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
@@ -158,3 +171,27 @@
     </div>
   </div>
 </div>
+
+
+<script type="text/javascript">
+  //$("div#myId").dropzone({ url: "/file/post" });
+
+  Dropzone.options.drop = {
+  //uploadMultiple: true,
+  //paramName: "file", // The name that will be used to transfer the file
+  maxFilesize: 2, // MB
+  acceptedFiles: "image/*"
+  /*
+  accept: function(file, done) {
+    if (file.name == "justinbieber.jpg") {
+      done("Naha, you don't.");
+    }
+    else { done(); }
+  }*/
+};
+
+var dropzone = new Dropzone("#archivos", {
+  url: ''
+});
+
+</script>
