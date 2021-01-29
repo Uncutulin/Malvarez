@@ -76,7 +76,7 @@ $(document).ready(function () {
 });
 
 $('#addUsuario').click(function(){
-    $('#nombre').val("");
+    $('#email').val("");
     $('#id').val("");
     $('#exampleModal').modal('show');
 })
@@ -87,7 +87,7 @@ function edit(id){
     url: '<?=site_url()?>/../../getUsuario/'+id,
     type: "GET",
     success: function(respuesta) {
-      $('#nombre').val(respuesta);
+      $('#email').val(respuesta);
       $('#id').val(id);
       $('#exampleModal').modal('show');
     },

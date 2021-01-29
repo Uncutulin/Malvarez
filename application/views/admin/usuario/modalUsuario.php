@@ -10,12 +10,31 @@
       <form action="<?=site_url('../../insertUsuario')?>" method="POST" class="needs-validation" novalidate>
         <div class="modal-body">  
           <input type="text" class="form-control" name="id" id="id" placeholder="id" hidden="hidden">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" class="form-control" name="email" id="email" placeholder="Email" required>
-            <!--<div class="valid-feedback">Valido.</div>-->
-            <div class="invalid-feedback">El campo esta vacio.</div>
-          </div>  
+            <div class="form-group">
+				<label for="email">Email</label>
+				<input type="text" class="form-control" name="email" id="email" placeholder="Email" required>
+				<!--<div class="valid-feedback">Valido.</div>-->
+				<div class="invalid-feedback">El campo esta vacio.</div>
+            </div>
+			<div class="row">
+				<div style="flex: 50%;max-width: 50%;" class="col-2">			
+					<div class="form-group">
+						<label for="nombre">Nombre</label>
+						<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+					</div>
+					</div>
+				<div style="flex: 50%;max-width: 50%;" class="col-2">
+					<div class="form-group">
+						<label for="tel">Teléfono</label>
+						<input type="text" class="form-control" id="tel" name="tel" placeholder="Teléfono">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+                <label for="tel">Clave</label>
+                <input type="text" class="form-control" id="clave" name="clave" placeholder="Clave">
+			</div>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
