@@ -11,21 +11,21 @@
       <!-- Buscardor --->
       <!--<a class="btn btn-outline-secondary" href="#">Coming soon</a>-->
       <div class="input-group mb-3">
-    <select id="operations" style="background-color: #d91a1ba1" class="btn btn-danger">
-      <option data-name="Venta" value="1">Venta</option>
-            <option data-name="Alquiler" value="2">Alquiler</option>
-        </select>
-    <select id="property_types" style="background-color: #d91a1ba1" class="btn btn-danger">
-      <option class="red-input" value="-1" selected disabled="disabled">Tipo de Propiedad</option>
-      <option class="red-input" value="0">Todas</option>
-      <?php
-        foreach ($listadoTipoPropiedad as $key => $TipoPropiedades) {
-          echo '<option class="red-input" value="'.$TipoPropiedades->Id.'">'.$TipoPropiedades->Descripcion.'</option>';
-        }
-      ?>
-    </select>
-        <input type="text" class="form-control form-control-lg" placeholder="Buscar por ubicación, dirección o calle" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-danger" type="button" id="button-addon2">Buscar</button>
+		<select id="operations" style="background-color: #d91a1ba1" class="btn btn-danger">
+		  <option data-name="Venta" value="1">Venta</option>
+				<option data-name="Alquiler" value="2">Alquiler</option>
+			</select>
+		<select id="property_types" style="background-color: #d91a1ba1" class="btn btn-danger">
+		  <option class="red-input" value="-1" selected disabled="disabled">Tipo de Propiedad</option>
+		  <option class="red-input" value="0">Todas</option>
+		  <?php
+			foreach ($listadoTipoPropiedad as $key => $TipoPropiedades) {
+			  echo '<option class="red-input" value="'.$TipoPropiedades->Id.'">'.$TipoPropiedades->Descripcion.'</option>';
+			}
+		  ?>
+		</select>
+			<input type="text" class="form-control form-control-lg" placeholder="Buscar por ubicación, dirección o calle" aria-label="Recipient's username" aria-describedby="button-addon2">
+			<button class="btn btn-danger" type="button" id="button-addon2">Buscar</button>
       </div>
     </div>
   </div>

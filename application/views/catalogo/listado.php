@@ -12,23 +12,75 @@
           font-size: 3.5rem;
         }
       }
+	  
+	  .bg-gray {
+		background-color: #f5f5f5 !important;
+	  }
+	  .form-group {
+		margin-bottom: 20px;
+	  }
+	  .btn-default1, .btn-default2:hover {
+		color: #fff;
+		background-color: #d91a1ba1;
+		border-color: transparent;
+	  }
+	  .form-control {
+		appearance: auto;
+	  }
     </style>    
   </head>
   <body>    
 
 <main>
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Album example</h1>
-        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-        <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
-          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-        </p>
-      </div>
-    </div>
-  </section>
+  <div class="full-row py-3 bg-gray d-none d-sm-block">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2 col-lg-3">
+				<div class="form-group">
+					<select class="form-control" id="city_select" name="city"><option value="" selected=""> Seleccione Ciudad </option><option value="delv"> Del Viso </option><option value="polv"> Los Polvorines </option><option value="tort"> Tortuguitas </option><option value="josec"> José C. Paz </option><option value="bella"> Bella Vista </option><option value="sanmi"> San Miguel </option><option value="pilar"> Pilar </option></select>
+				</div>
+			</div>
+			<div class="col-md-2 col-lg-3">
+				<div class="form-group">
+					<select class="form-control" id="purpose" name="purpose">
+						<option value="">Estado</option>
+						<option selected="selected" value="sale">En Venta</option>
+						<option value="rent">En Alquiler</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-md-2 col-lg-3">
+				<div class="form-group">
+					<select class="form-control" id="type_select" name="type"><option value="" selected=""> Tipo de Propiedad </option><option value="Casa"> Casa</option><option value="Lote"> Lote</option><option value="Galpón"> Galpón </option><option value="Local"> Local</option><option value="Departamento"> Departamento</option><option value="Dúplex"> Dúplex</option><option value="Terreno">Terreno </option></select>
+				</div>
+			</div>
+			<div class="col-md-2 col-lg-2">
+				<div class="form-group">
+					<select class="form-control" id="beds" name="beds"><option value="-" selected="selected">Cantidad dormitorios </option><option value="sindor"> Sin dormitorio </option><option value="mono"> Monoambiente </option><option value="1"> 1 </option><option value="2"> 2 </option><option value="3"> 3 </option><option value="4"> 4 </option><option value="5"> 5 </option><option value="6"> 6 </option><option value="7"> 7 </option><option value="8"> 8 </option><option value="9"> 9 </option></select>
+				</div>
+			</div>
+			<div class="col-md-7 col-lg-5">
+				<div class="form-group">
+					<input type="text" class="form-control" name="clave" value="" placeholder="Buscar palabras clave">
+				</div>
+			</div>
+			<div class="col-md-3 col-lg-3">
+				<select class="form-control" name="shortBy" id="shortBy">
+					<option value="null" selected="">Ordenar por</option>
+					<option value="price_dollars_low_to_height">Menor Precio</option>
+					<option value="price_dollars_high_to_low">Mayor Precio</option>
+					<option value="latest">Más Recientes</option>
+					<option value="oldest">Más Antiguas</option>
+				</select>
+			</div>			
+			<div class="col-md-3 col-lg-3">
+				<div class="form-group">
+					<button type="submit" class="btn btn-default1 w-100">Buscar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
 
   <div class="album py-5 bg-light">
     <div class="container">

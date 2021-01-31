@@ -45,7 +45,8 @@ class Usuario extends CI_Controller {
 			$Usuario = $this->UsuarioModel->getUsuario($id);			
 		}
 		//var_dump($Usuario);
-		echo $Usuario->Email;
+		echo $Usuario;
+		
 	}
 
 	public function putUsuario(){

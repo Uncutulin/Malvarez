@@ -77,6 +77,8 @@ $(document).ready(function () {
 
 $('#addUsuario').click(function(){
     $('#email').val("");
+	$('#nombre').val("");
+	$('#tel').val("");
     $('#id').val("");
     $('#exampleModal').modal('show');
 })
