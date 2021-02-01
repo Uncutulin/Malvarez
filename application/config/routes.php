@@ -74,6 +74,10 @@ $route['insertUsuario'] = 'usuario/postUsuario';
 $route['getUsuario/(:num)'] = 'usuario/getUsuario/$1';
 $route['putEstadoUsuario/(:num)'] = 'usuario/putEnabledDisabledUsuario/$1';
 
+$route['ajuntoImagen'] = 'adjunto/SubirImagen';
+
+
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

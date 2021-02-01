@@ -1,6 +1,5 @@
 
-<script src="<?=base_url('/../../assets/js/dropzone.js')?>"></script>
-<link rel="stylesheet" type="text/css" href="<?=base_url('/../../assets/css/dropzone.css')?>">
+
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   
@@ -13,7 +12,19 @@
         </button>
       </div>
       <div class="modal-body">      
-        <form>          
+        <form>  
+
+        <!--
+            <div class="col-4">
+              <div class="form-group">
+                <label for="exampleInputPassword1">Nro Servicios</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+              </div>
+            </div>
+            -->
+
+
+<!--
           <div class="row">
             <div class="col-4">
               <div class="form-group">
@@ -43,17 +54,7 @@
 
 
 
-          <div class="row">
-
-            <!--
-            <div class="col-4">
-              <div class="form-group">
-                <label for="exampleInputPassword1">Nro Servicios</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-              </div>
-            </div>
-            -->
-
+          <div class="row">  
             <div class="col-2" style="padding-right: 30px">
               <div class="form-group">
                 <label for="ambientes">Ambientes</label>
@@ -142,7 +143,7 @@
               </div>
             </div>
           </div>
-
+-->
           <!--
             <div class="form-group">
               <label for="exampleInputFile">File input</label>
@@ -154,16 +155,9 @@
               </div>
             </div>
           -->
-          <!-- /.card-body -->      
-          <div class="row">
-            <div class="col-12">
-              <form action="/upload-target" class="dropzone dz-clickable"><div class="dz-default dz-message"><button class="dz-button" type="button">Drop files here to upload</button></div></form>
-              <input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
-            </div>
-          </div>
+          <!-- /.card-body -->     
 
 
-      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-primary">Guardar</button>
@@ -176,11 +170,11 @@
 <script type="text/javascript">
   //$("div#myId").dropzone({ url: "/file/post" });
 
-  Dropzone.options.drop = {
+  //Dropzone.options.drop = {
   //uploadMultiple: true,
   //paramName: "file", // The name that will be used to transfer the file
-  maxFilesize: 2, // MB
-  acceptedFiles: "image/*"
+  //maxFilesize: 2, // MB
+  //acceptedFiles: "image/*"
   /*
   accept: function(file, done) {
     if (file.name == "justinbieber.jpg") {
@@ -188,10 +182,17 @@
     }
     else { done(); }
   }*/
-};
+//};
 
+
+//if ($('#dropzone').length) {
+ // $("div#dropzone").dropzone({ url: "<?=base_url('/../../assets/adjuntos/')?>" });
+  // other code here
+//}
+
+/*
 var dropzone = new Dropzone("#archivos", {
   url: ''
-});
+});*/
 
 </script>
