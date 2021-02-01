@@ -11,14 +11,6 @@
           <div class="col-sm-6">
             <h1>Propiedad</h1>
           </div>
-          <!--
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">User Profile</li>
-            </ol>
-          </div>
-        -->
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -76,19 +68,7 @@
                 <p class="text-muted"><?=$Propiedad->Ubicacion?></p>
 
                 <hr>
-                <!--
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
 
-                <p class="text-muted">
-                  <span class="tag tag-danger">UI Design</span>
-                  <span class="tag tag-success">Coding</span>
-                  <span class="tag tag-info">Javascript</span>
-                  <span class="tag tag-warning">PHP</span>
-                  <span class="tag tag-primary">Node.js</span>
-                </p>
-                
-                <hr>
-                -->
                 <strong><i class="far fa-file-alt mr-1"></i> Detalles</strong>
                 <ul class="text-muted">
                   <li><b>Ambientes: </b><?=$Propiedad->Ambientes?></li>
@@ -159,118 +139,27 @@ $('#ModalAdjunto').click(function(){
 })
 
 
-
-
-
-
-
 var arrayFiles = [];
 
 Dropzone.options.FormUpload = {
-  //$(".multimediaFisica").dropzone({
   url: "<?=site_url('../../ajuntoImagen2')?>",
   paramName: "file", // The name that will be used to transfer the file
   maxFilesize: 10, // MB
   addRemoveLinks: true,
   dictRemoveFile: "Eliminar",
   init: function(){
-    //event.preventDefault();
     //funcion para subir las imagenes
     this.on("addedfile", function(file){
       arrayFiles.push(file);
-      //console.log(file);      
-        });    
-
-      //console.log("arrayFiles", arrayFiles)
-    
+    })
     //funcion para eliminar las imagenes
     this.on("removedfile", function(file){
       var index = arrayFiles.indexOf(file);
       arrayFiles.splice(index, 1);
-      //console.log("arrayFiles", arrayFiles)
     });
   }
-};
-
-$(".guardarProducto").click(function(){
-  
-
-  if(arrayFiles != ""){
-    if(arrayFiles.length > 0){
-      //console.log(arrayFiles);
-
-      var listaMultimedia = [];
-      var finalFor = 0;
-
-
-      for (var i = 0; i < arrayFiles.length; i++) {
-        var datosMultimedia = new FormData();
-        datosMultimedia.append("file", arrayFiles[i]);
-        datosMultimedia.append("orden", i);
-
-        
-        //console.log(datosMultimedia);
-        console.log(arrayFiles);
-        $.ajax({          
-          url: "<?=site_url('../../ajuntoImagen')?>",
-          method: 'POST',
-          data: datosMultimedia,
-          //data: datosMultimedia,
-          cache: false,
-          contentType: false,
-          processData: false,
-          /*
-          beforeSed:function(){
-
-          },*/
-          success: function(respuesta){
-            console.log(respuesta);
-            /*
-            listaMultimedia.push({'foto': respuesta});
-            multimediaFisica = JSON.stringify(listaMultimedia);
-            if((finalFor + 1) == arrayFiles.length){
-              //agregarMiProducto(multimediaFisica);
-              finalFor = 0;
-            }
-            finalFor ++;
-            //$("#guardarProducto").html("Gurdar Producto");  */       
-          }
-        });      
-      }
-      //console.log(listaMultimedia);
-  }else{
-    alert("Debe elegir alguna imagen");  
- }
 }
-});
-   /*
-            
-          */
-
-/*
-  removedFile: function(file){
-    var name= file.name;
-
-    $.ajax({
-      type: 'POST',
-      url: "<?=site_url('../../ajuntoImagen')?>",
-      data: {name: name, request: 2},
-      success: function(response){
-        console.log('success: '+response);
-      }
-    });
-
-    var _ref;
-    return(_ref=file.previewElement) != null = _ref.parentNode.removeChild(file.previewElement): void 0;
-  }*/
-  
-/*
-  accept: function(file, done) {
-    if (file.name == "justinbieber.jpg") {
-      done("Naha, you don't.");
-    }
-    else { done(); }
-  }*/
 
 
-  </script>
+
+</script>

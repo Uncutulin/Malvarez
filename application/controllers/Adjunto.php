@@ -36,11 +36,37 @@ class Adjunto extends CI_Controller {
 			var_dump("siiii FILE Adjuntos");
 		}*/
 		
-		if(isset($_FILES['file'])){
+		if(isset($_FILES['file']))
+		{
+			//var_dump($_FILES);
+
+
+			$mi_archivo = $_FILES['file']['tmp_name'];
+	        $config['upload_path'] = base_url("../../../assets/uploads/");
+	        $config['file_name'] = "nombre_archivo";
+	        $config['allowed_types'] = "*";
+	        $config['max_size'] = "50000";
+	        $config['max_width'] = "2000";
+	        $config['max_height'] = "2000";
+	        $config['file_name'] = $_FILES['file']['name'];
+
+	        $this->load->library('upload', $config);
+
+	        var_dump($mi_archivo);
+	        if (!$this->upload->do_upload($mi_archivo)) {
+            //*** ocurrio un error
+	            $data['uploadError'] = $this->upload->display_errors();
+	            echo $this->upload->display_errors();
+	            return;
+	        }
+
+	        $data['uploadSuccess'] = $this->upload->data();
+
+			/*
 			if(isset($_FILES['file']['tmp_name']) && !empty($_FILES['file']['tmp_name'])){
 				echo "siiii";
 				echo $_FILES['file']['tmp_name'];
-			}
+			}*/
 		}
 	}
 }

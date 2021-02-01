@@ -71,3 +71,47 @@
 </div>
 
 
+<script type="text/javascript">
+  
+
+$(".guardarProducto").click(function(){ 
+  if(arrayFiles != ""){
+    if(arrayFiles.length > 0){
+      var listaMultimedia = [];
+      var finalFor = 0;
+
+      for (var i = 0; i < arrayFiles.length; i++) {
+        var datosMultimedia = new FormData();
+        datosMultimedia.append("file", arrayFiles[i]);
+        datosMultimedia.append("orden", i);
+
+        console.log(arrayFiles);
+        $.ajax({          
+          url: "<?=site_url('../../../ajuntoImagen')?>",
+          method: 'POST',
+          data: datosMultimedia,
+          cache: false,
+          contentType: false,
+          processData: false,
+
+          success: function(respuesta){
+            console.log(respuesta);
+            /*
+            listaMultimedia.push({'foto': respuesta});
+            multimediaFisica = JSON.stringify(listaMultimedia);
+            if((finalFor + 1) == arrayFiles.length){
+              //agregarMiProducto(multimediaFisica);
+              finalFor = 0;
+            }
+            finalFor ++;
+            //$("#guardarProducto").html("Gurdar Producto");  */       
+          }
+        });      
+      }
+  }else{
+    alert("Debe elegir alguna imagen");  
+ }
+}
+});
+
+</script>
