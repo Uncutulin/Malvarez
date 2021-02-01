@@ -88,9 +88,14 @@ function edit(id){
   $.ajax({
     url: '<?=site_url()?>/../../getUsuario/'+id,
     type: "GET",
+    dataType : 'json',
     success: function(respuesta) {
-      $('#email').val(respuesta);
-      $('#id').val(id);
+      console.log(respuesta);
+      $('#email').val(respuesta.Email);
+      $('#nombre').val(respuesta.Nombre);
+      $('#tel').val(respuesta.Tel);
+      $('#id').val(respuesta.Id);
+
       $('#exampleModal').modal('show');
     },
     error: function() {

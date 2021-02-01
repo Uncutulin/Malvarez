@@ -15,7 +15,7 @@ class UsuarioModel extends CI_Model {
 	{
 		$this->load->database();
         $query = $this->db->get_where('usuarios', array('Id' => $id));
-        return $query->result()[0];
+        return $query->result_array();
 	}
 
 	public function postUsuario($data)
