@@ -23,12 +23,10 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-3">
-
-            <!-- Profile Image -->
-            <div class="card card-primary card-outline">
+            <div class="card card-danger card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
+                  <!--<img class="profile-user-img img-fluid img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">-->
                 </div>
 
                 <h3 class="profile-username text-center">Nina Mcintire</h3>
@@ -56,7 +54,7 @@
             <!-- About Me Box -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">About Me</h3>
+                <h3 class="card-title">Descripción</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -96,7 +94,8 @@
           </div>
           <!-- /.col -->
           <div class="col-md-9">
-            <div class="card">
+
+            <div class="card card-danger card-outline">
                <div class="card-header border-0">
             <div class="d-flex justify-content-between">
               <h3 class="card-title">Listado de Imagenes</h3>
@@ -135,7 +134,8 @@
   </div>
 </section>
 </div>
-
+<script src="<?=base_url('/../../assets/js/dropzone.js')?>"></script>
+<link rel="stylesheet" type="text/css" href="<?=base_url('/../../assets/css/dropzone.css')?>">
   <script type="text/javascript">
     $(document).ready(function () {
     $('#listadoAdjuntos').DataTable({

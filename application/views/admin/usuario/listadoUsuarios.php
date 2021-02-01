@@ -11,7 +11,7 @@
 
     <section class="content">
       <div class="">    
-        <div class="card">
+        <div class="card card-danger card-outline">
           <div class="card-header border-0">
             <div class="d-flex justify-content-between">
               <h3 class="card-title">Listado de Usuarios</h3>
