@@ -24,22 +24,35 @@
           <div class="card-body"> 
             <table class="table" id="listadoTipoPropiedades">
               <thead>
-                <tr>
-                 
+                <tr>                 
                   <th scope="col">Nombre</th>
-                  <th scope="col">Acciones</th>
+                  <th scope="col"><center>Estado</center></th>
+                  <th scope="col"><center>Modificar</center></th>
+				  <th scope="col"><center>Inhabilitar/Habilitar</center></th>
                 </tr>
               </thead>
               <tbody>                
                  <?php
                     foreach ($listadoTipoPropiedad as $key => $value) {
+						if($value->Activo==1){
+						   $style = "color: black;";
+					   }elseif($value->Activo==0){
+						   $style = "color: darkgray;";
+					   }
                       echo "<tr>";
-                      echo "<td>".$value->Descripcion."</td>";
-                      echo '<td> 
+                      echo "<td style=\"".$style."\">".$value->Descripcion."</td>";
+					   if($value->Activo==1){
+                          echo "<td style=\"".$style."\"><center>Activo</center></td>";
+                        }elseif($value->Activo==0){
+                          echo "<td style=\"".$style."\"><center>Inhabilitado</center></td>";
+                        }
+                      echo '<td><center>					  
                         <button type="button" onclick="edit('.$value->Id.')" class="btn btn-warning btn-sm pop" data-toggle="popover" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
                           <i class="fas fa-pen"></i>
                         </button>
                         &nbsp;';
+						echo '</center></td>';
+						echo '<td><center>';
                         if($value->Activo==1){
                           echo '<button type="button" class="btn btn-danger btn-sm" onclick="delet('.$value->Id.','.$value->Activo.')">
                                   <i class="fas fa-trash-alt"></i>

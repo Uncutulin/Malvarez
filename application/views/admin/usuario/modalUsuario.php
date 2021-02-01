@@ -31,7 +31,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-                <label for="tel">Clave</label>
+                <label for="clave">Clave</label>
                 <input type="text" class="form-control" id="clave" name="clave" placeholder="Clave">
 			</div>
 

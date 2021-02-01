@@ -21,12 +21,19 @@ class Usuario extends CI_Controller {
 		$this->load->model('UsuarioModel');
 		$email = isset($_POST['email']) ? $_POST['email'] : NULL;
 		$id = isset($_POST['id']) ? $_POST['id'] : NULL;
-		print_r($email);
-		print_r($id);
+		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : NULL;
+		$tel = isset($_POST['tel']) ? $_POST['tel'] : NULL;
+		$clave = isset($_POST['clave']) ? $_POST['clave'] : NULL;
+		date_default_timezone_set('America/Argentina/Buenos_Aires');
+		$fecha = date("Y-m-d H:i:s"); 
 		if($email!=NULL)
 		{
 			$data = array(
         		'email' => $email,
+				'nombre' => $nombre,
+				'tel' => $tel,
+				'clave' => $clave,
+				'fecha' => $fecha,
 			);
 			if($id!=NULL)
 			{
@@ -44,11 +51,8 @@ class Usuario extends CI_Controller {
 		if($id!=NULL){			
 			$Usuario = $this->UsuarioModel->getUsuario($id);			
 		}
-<<<<<<< HEAD
-		var_dump($Usuario);	
-=======
 		echo json_encode($Usuario[0]);	
->>>>>>> fd6c02a6f4d11c82974a102d1548fb421fff8331
+
 	}
 
 	public function putUsuario(){
