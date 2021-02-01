@@ -52,7 +52,7 @@
             <!-- /.card -->
 
             <!-- About Me Box -->
-            <div class="card card-primary">
+            <div class="card card-danger">
               <div class="card-header">
                 <h3 class="card-title">Descripción</h3>
               </div>

@@ -35,4 +35,48 @@ class Propiedad extends CI_Controller {
 		$this->load->view('admin/footer');
 	}
 
+
+	public function postPropiedad(){
+
+		$this->load->model('UsuarioModel');
+
+		if(isset($_POST)){
+			$data = array(
+        		'email' => $email,
+				'nombre' => $nombre,
+				'tel' => $tel,
+				'clave' => $clave,
+				'fecha' => $fecha,
+			);
+
+		}
+		/*
+		$email = isset($_POST['email']) ? $_POST['email'] : NULL;
+		$id = isset($_POST['id']) ? $_POST['id'] : NULL;
+		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : NULL;
+		$tel = isset($_POST['tel']) ? $_POST['tel'] : NULL;
+		$clave = isset($_POST['clave']) ? $_POST['clave'] : NULL;
+		date_default_timezone_set('America/Argentina/Buenos_Aires');
+		$fecha = date("Y-m-d H:i:s"); */
+		/*
+		if($email!=NULL)
+		{
+			$data = array(
+        		'email' => $email,
+				'nombre' => $nombre,
+				'tel' => $tel,
+				'clave' => $clave,
+				'fecha' => $fecha,
+			);
+			if($id!=NULL)
+			{
+				$this->UsuarioModel->putUsuario($id, $data);		
+			}else{
+				$this->UsuarioModel->postUsuario($data);				
+			}
+		}*/
+		redirect("../../Usuario");	
+	}
+
+
 }

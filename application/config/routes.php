@@ -78,6 +78,8 @@ $route['ajuntoImagen'] = 'adjunto/SubirImagen';
 $route['adjuntoListado'] = 'propiedad/ListadoAdjuntos';
 
 
+$route['postPropiedad'] = 'propiedad/postPropiedad';
+
 
 
 $route['404_override'] = '';
