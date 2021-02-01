@@ -18,29 +18,29 @@ class Adjunto extends CI_Controller {
 
 	public function SubirImagen()
 	{
-		//var_dump($this->input->post);
+			//var_dump($this->input->post);
 		
 	/*
 	 $data = $this->security->xss_clean($this->input->raw_input_stream);
    	 $items = json_decode($data);*/	
 
-   	 var_dump("Controlador");
-
    	 //echo "Controlador";
 
-		if(isset($_POST['file'])){
-			echo "siiii POST Adjuntos";
+   	 //echo "Controlador";
+/*
+		if(isset($_POST['Files'])){
+			var_dump("siiii POST Adjuntos");
 		}
 
-		if(isset($_FILE['file'])){
-			echo "siiii FILE Adjuntos";
-		}
-		/*
-		if(isset($_FILE['file'])){
-			if(isset($_FILE['file']['tmp_name']) && !empty($_FILE['file']['tmp_name'])){
-				echo "siiii";
-				echo $_FILE['file']['tmp_name'];
-			}
+		if(isset($_FILES['Files'])){
+			var_dump("siiii FILE Adjuntos");
 		}*/
+		
+		if(isset($_FILES['file'])){
+			if(isset($_FILES['file']['tmp_name']) && !empty($_FILES['file']['tmp_name'])){
+				echo "siiii";
+				echo $_FILES['file']['tmp_name'];
+			}
+		}
 	}
 }
