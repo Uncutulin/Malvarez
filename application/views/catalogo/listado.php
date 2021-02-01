@@ -12,7 +12,6 @@
           font-size: 3.5rem;
         }
       }
-	  
 	  .bg-gray {
 		background-color: #f5f5f5 !important;
 	  }
@@ -65,14 +64,14 @@
 				</div>
 			</div>
 			<div class="col-md-3 col-lg-3">
-				<select class="form-control" name="shortBy" id="shortBy">
-					<option value="null" selected="">Ordenar por</option>
-					<option value="price_dollars_low_to_height">Menor Precio</option>
-					<option value="price_dollars_high_to_low">Mayor Precio</option>
-					<option value="latest">Más Recientes</option>
-					<option value="oldest">Más Antiguas</option>
-				</select>
-			</div>			
+					<select class="form-control" name="shortBy" id="shortBy">
+						<option value="null" selected="">Ordenar por</option>
+						<option value="price_dollars_low_to_height">Menor Precio</option>
+						<option value="price_dollars_high_to_low">Mayor Precio</option>
+						<option value="latest">Más Recientes</option>
+						<option value="oldest">Más Antiguas</option>
+					</select>
+				</div>
 			<div class="col-md-3 col-lg-3">
 				<div class="form-group">
 					<button type="submit" class="btn btn-default1 w-100">Buscar</button>

@@ -44,9 +44,7 @@ class Usuario extends CI_Controller {
 		if($id!=NULL){			
 			$Usuario = $this->UsuarioModel->getUsuario($id);			
 		}
-		//var_dump($Usuario);
-		echo $Usuario;
-		
+		var_dump($Usuario);	
 	}
 
 	public function putUsuario(){

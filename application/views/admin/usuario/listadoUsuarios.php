@@ -89,6 +89,8 @@ function edit(id){
     url: '<?=site_url()?>/../../getUsuario/'+id,
     type: "GET",
     success: function(respuesta) {
+	alert(respuesta.Id);
+	console.log(respuesta.Email);
       $('#email').val(respuesta);
       $('#id').val(id);
       $('#exampleModal').modal('show');
