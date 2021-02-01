@@ -69,16 +69,22 @@ $route['insertPropiedad'] = 'tipoPropiedad/postTipoPropiedad';
 $route['getTipoPropiedad/(:num)'] = 'tipoPropiedad/getTipoPropiedad/$1';
 $route['putEstadoTipoPropiedad/(:num)'] = 'tipoPropiedad/putEnabledDisabledTipoPropiedad/$1';
 
+
+//Usuarios
 $route['users'] = 'usuario';
 $route['insertUsuario'] = 'usuario/postUsuario';
 $route['getUsuario/(:num)'] = 'usuario/getUsuario/$1';
 $route['putEstadoUsuario/(:num)'] = 'usuario/putEnabledDisabledUsuario/$1';
 
+//Imagenes
 $route['ajuntoImagen'] = 'adjunto/SubirImagen';
-$route['adjuntoListado'] = 'propiedad/ListadoAdjuntos';
+$route['adjuntoListado/(:num)'] = 'propiedad/ListadoAdjuntos/$1';
 
 
+
+//Propiedades
 $route['postPropiedad'] = 'propiedad/postPropiedad';
+
 
 
 

@@ -27,58 +27,36 @@
                   <th scope="col">Tipo Propiedad</th>
                   <th scope="col">Barrio</th>
                   <th scope="col">Ubicación</th>
-                  <th scope="col">Servicios</th>
-                  <th scope="col">Acciones</th>
-                  <!--
-                  <th scope="col">Ambientes</th>
-                  <th scope="col">Dormitorios</th>
-                  <th scope="col">Baños</th>
-                  <th scope="col">Cocheras</th>
-                  <th scope="col">Pisos</th>
-                  <th scope="col">Antiguedad</th>
-                  <th scope="col">Situación</th>
-                  <th scope="col">Expensas</th>
-                  <th scope="col">Orientación</th>
-                  <th scope="col">Disposición</th>
-                  <th scope="col">Descripción</th>
-                  <th scope="col">Estado</th>
-                -->
+                  <th scope="col">Condicion</th>
+                  <th scope="col" class="text-center">Modificar</th>
+                  <th scope="col" class="text-center">Detalles</th>
+                  <th scope="col" class="text-center"vv>Inhabilitar/Habilitar</th>       
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>Mark</td>
-                  <td>
-                    <button type="button" class="btn btn-warning btn-sm">
-                      <i class="fas fa-pen"></i>
-                    </button>
+                
+                  <?php
+                    foreach ($listadoPropiedad as $key => $value) {
+                      echo "<tr>";
+                      echo "<td>".$value->IdProp."</td>";
+                      echo "<td>".$value->IdBarrio."</td>";
+                      echo "<td>".$value->Ubicacion."</td>";
+                      echo "<td>".$value->Condicion."</td>";
+                      echo '<td class="text-center"><button type="button" class="btn btn-warning btn-sm">
+                              <i class="fas fa-pen"></i>
+                            </button></td>';                            
+                      
+                      echo '<td class="text-center"><a type="button" class="btn btn-success btn-sm" href="'.site_url('../../adjuntoListado/'.$value->IdProp).'">
+                              <i class="fas fa-file-upload"></i>
+                            </a></td>';
 
-                    <a type="button" class="btn btn-success btn-sm" href="<?=site_url('../../adjuntoListado')?>">
-                      <i class="fas fa-file-upload"></i>
-                    </a>
+                      echo '<td class="text-center"><button type="button" class="btn btn-danger btn-sm" onclick="">
+                              <i class="fas fa-trash-alt"></i>
+                            </button>';
+                      echo "</td></tr> ";
 
-                    <button type="button" class="btn btn-danger btn-sm" onclick="">
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                  </td>
-                  <!--
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
-                -->
-                </tr>                
+                    }
+                  ?>                               
               </tbody>
             </table>
          </div>

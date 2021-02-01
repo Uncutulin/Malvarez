@@ -6,76 +6,70 @@ class Propiedad extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('TipoPropiedadModel');
+		$this->load->model('PropiedadModel');
+		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades(true);		
+		$listadoPropiedad = $this->PropiedadModel->getPropiedades(true);
 
-		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades(true);
 		$data['listadoTipoPropiedad'] = $listadoTipoPropiedad;
+		$data['listadoPropiedad'] = $listadoPropiedad;
 
 		$this->load->view('admin/header');
 		$this->load->view('admin/sidebar');		
 		$this->load->view('admin/menu');
-		$this->load->view('admin/propiedad/listadoPropiedad');
+		$this->load->view('admin/propiedad/listadoPropiedad',$data);
 		$this->load->view('admin/propiedad/modalAdjunto');	
-		$this->load->view('admin/propiedad/modalPropiedad',$data);
+		$this->load->view('admin/propiedad/modalPropiedad');
 		$this->load->view('admin/footer');
 	}
 
-	public function ListadoAdjuntos()
+	public function ListadoAdjuntos($id)
 	{
-		$this->load->model('TipoPropiedadModel');
+		$this->load->model('PropiedadModel');
 
-		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades(true);
-		$data['listadoTipoPropiedad'] = $listadoTipoPropiedad;
+		$Propiedad = $this->PropiedadModel->getPropiedadbyId($id);
+		$data['Propiedad'] = $Propiedad;
 
 		$this->load->view('admin/header');
 		$this->load->view('admin/sidebar');		
 		$this->load->view('admin/menu');
-		$this->load->view('admin/propiedad/listadoAdjunto');
+		$this->load->view('admin/propiedad/listadoAdjunto',$data);
 		$this->load->view('admin/propiedad/modalAdjunto');	
-		//$this->load->view('admin/propiedad/modalPropiedad',$data);
 		$this->load->view('admin/footer');
 	}
 
 
 	public function postPropiedad(){
 
-		$this->load->model('UsuarioModel');
+		$this->load->model('PropiedadModel');
 
 		if(isset($_POST)){
-			$data = array(
-        		'email' => $email,
-				'nombre' => $nombre,
-				'tel' => $tel,
-				'clave' => $clave,
-				'fecha' => $fecha,
+			$Id = isset($_POST['id']) ? $_POST['id'] : NULL;
+			$data = array(				
+        		'IdTipo' => $_POST['TipoPropiedad'],
+				'IdBarrio' => $_POST['Barrio'],
+				'Ubicacion' => $_POST['Ubicacion'],
+				'Ambientes' => $_POST['Ambientes'],
+				'Dormitorios' => $_POST['Dormitorios'],
+				'Banos' => $_POST['Bano'],
+				'Cocheras' => $_POST['Cochera'],
+				'Pisos' => $_POST['Pisos'],
+				'Antiguedad' => $_POST['Antiguedad'],
+				'Situacion' => $_POST['Situacion'],
+				'Expensas' => $_POST['Expensas'],
+				'Orientacion' => $_POST['Orientacion'],
+				'Disposicion	' => $_POST['Disposicion'],
+				'Condicion' => $_POST['Estado'],
+				//'fecha' => $_POST['Descripcion'],
 			);
 
-		}
-		/*
-		$email = isset($_POST['email']) ? $_POST['email'] : NULL;
-		$id = isset($_POST['id']) ? $_POST['id'] : NULL;
-		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : NULL;
-		$tel = isset($_POST['tel']) ? $_POST['tel'] : NULL;
-		$clave = isset($_POST['clave']) ? $_POST['clave'] : NULL;
-		date_default_timezone_set('America/Argentina/Buenos_Aires');
-		$fecha = date("Y-m-d H:i:s"); */
-		/*
-		if($email!=NULL)
-		{
-			$data = array(
-        		'email' => $email,
-				'nombre' => $nombre,
-				'tel' => $tel,
-				'clave' => $clave,
-				'fecha' => $fecha,
-			);
-			if($id!=NULL)
+			if($Id!=NULL)
 			{
-				$this->UsuarioModel->putUsuario($id, $data);		
+				$this->PropiedadModel->putPropiedad($id, $data);		
 			}else{
-				$this->UsuarioModel->postUsuario($data);				
+				$this->PropiedadModel->postPropiedad($data);				
 			}
-		}*/
-		redirect("../../Usuario");	
+		}	
+		redirect("../../Propiedad");	
 	}
 
 

@@ -1,3 +1,8 @@
+
+
+<script src="<?=base_url('/../../../assets/js/dropzone.js')?>"></script>
+<link rel="stylesheet" type="text/css" href="<?=base_url('/../../../assets/css/dropzone.css')?>">
+
 <div class="content-wrapper" style="min-height: 1662.75px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -66,12 +71,12 @@
 
                 <hr>
 
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Ubicación</strong>
 
-                <p class="text-muted">Malibu, California</p>
+                <p class="text-muted"><?=$Propiedad->Ubicacion?></p>
 
                 <hr>
-
+                <!--
                 <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
 
                 <p class="text-muted">
@@ -81,12 +86,14 @@
                   <span class="tag tag-warning">PHP</span>
                   <span class="tag tag-primary">Node.js</span>
                 </p>
-
+                
                 <hr>
-
-                <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                -->
+                <strong><i class="far fa-file-alt mr-1"></i> Detalles</strong>
+                <ul class="text-muted">
+                  <li><b>Ambientes: </b><?=$Propiedad->Ambientes?></li>
+                  <li><b>Dormitorios: </b><?=$Propiedad->Dormitorios?></li>
+                  <li><b>baños: </b><?=$Propiedad->Banos?></li>
               </div>
               <!-- /.card-body -->
             </div>
@@ -134,13 +141,11 @@
   </div>
 </section>
 </div>
-<script src="<?=base_url('/../../assets/js/dropzone.js')?>"></script>
-<link rel="stylesheet" type="text/css" href="<?=base_url('/../../assets/css/dropzone.css')?>">
   <script type="text/javascript">
     $(document).ready(function () {
     $('#listadoAdjuntos').DataTable({
         "language": {
-          'url': '<?=base_url('../../assets/js/arg.json')?>'            
+          'url': '<?=base_url('../../../assets/js/arg.json')?>'            
         }
     });
 });

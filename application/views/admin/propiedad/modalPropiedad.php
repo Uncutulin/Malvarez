@@ -5,7 +5,7 @@
   
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header card-danger card-outline">
         <h5 class="modal-title" id="exampleModalLabel">Nueva Propiedad</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -14,7 +14,7 @@
       <div class="modal-body">      
         
       <form action="<?=site_url('../../postPropiedad')?>" method="POST" class="needs-validation" novalidate>
-
+        <input type="text" class="form-control" id="id" name="id" hidden="">
         <!--
             <div class="col-4">
               <div class="form-group">
@@ -28,7 +28,7 @@
             <div class="col-4">
               <div class="form-group">
                   <label>Tipo Propiedad</label>
-                  <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                  <select class="form-control select2 select2-hidden-accessible" name="TipoPropiedad" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
                     <?php
                       foreach ($listadoTipoPropiedad as $key => $TipoPropiedades) {
                         echo '<option class="red-input" value="'.$TipoPropiedades->Id.'">'.$TipoPropiedades->Descripcion.'</option>';
@@ -40,13 +40,13 @@
             <div class="col-4">
               <div class="form-group">
                 <label for="barrio">Nro Barrio</label>
-                <input type="text" class="form-control" id="barrio" name="barrio" placeholder="Barrio">
+                <input type="text" class="form-control" id="Barrio" name="Barrio" placeholder="Barrio">
               </div>
             </div>
             <div class="col-4">
               <div class="form-group">
                 <label for="ubicacion">Ubicación</label>
-                <input type="text" class="form-control" id="ubicacion" name="ubicacion" placeholder="Ubicación">
+                <input type="text" class="form-control" id="Ubicacion" name="Ubicacion" placeholder="Ubicación">
               </div>
             </div>
           </div>
@@ -57,37 +57,37 @@
             <div class="col-2" style="padding-right: 30px">
               <div class="form-group">
                 <label for="ambientes">Ambientes</label>
-                <input type="number" class="form-control" id="ambientes" name="ambientes" placeholder="0" min="0">
+                <input type="number" class="form-control" id="Ambientes" name="Ambientes" placeholder="0" min="0">
               </div>
             </div>
             <div class="col-2">
               <div class="form-group">
                 <label for="dormitorios">Dormitorios</label>
-                <input type="number" class="form-control" id="dormitorios" name="dormitorios" placeholder="0" min="0">
+                <input type="number" class="form-control" id="Dormitorios" name="Dormitorios" placeholder="0" min="0">
               </div>
             </div>
             <div class="col-2">
               <div class="form-group">
                 <label for="bano">Baños</label>
-                <input type="number" class="form-control" id="bano" name="bano" placeholder="0" min="0">
+                <input type="number" class="form-control" id="Bano" name="Bano" placeholder="0" min="0">
               </div>
             </div>
             <div class="col-2" >
               <div class="form-group">
                 <label for="cochera">Cocheras</label>
-                <input type="number" class="form-control" id="cochera" name="cochera" placeholder="0" min="0">
+                <input type="number" class="form-control" id="Cochera" name="Cochera" placeholder="0" min="0">
               </div>
             </div>
             <div class="col-2" >
               <div class="form-group">
                 <label for="pisos">Pisos</label>
-                <input type="number" class="form-control" id="pisos" name="pisos" placeholder="0" min="0">
+                <input type="number" class="form-control" id="Pisos" name="Pisos" placeholder="0" min="0">
               </div>
             </div>
             <div class="col-2">
               <div class="form-group">
                 <label for="antiguedad">Antiguedad</label>
-                <input type="number" class="form-control" id="antiguedad" name="antiguedad" placeholder="0" min="0">
+                <input type="number" class="form-control" id="Antiguedad" name="Antiguedad" placeholder="0" min="0">
               </div>
             </div>
 
@@ -101,19 +101,19 @@
             <div class="col-4">
               <div class="form-group">
                 <label for="situacion">Situación</label>
-                <input type="text" class="form-control" id="situacion" name="situacion" placeholder="Situación">
+                <input type="text" class="form-control" id="Situacion" name="Situacion" placeholder="Situación">
               </div>
             </div>
             <div class="col-4">
               <div class="form-group">
                 <label for="expensas">Expensas</label>
-                <input type="text" class="form-control" id="expensas" name="expensas" placeholder="Expensas">
+                <input type="text" class="form-control" id="Expensas" name="Expensas" placeholder="Expensas">
               </div>
             </div>
              <div class="col-4">
               <div class="form-group">
                 <label for="orientacion">Orientación</label>
-                <input type="text" class="form-control" id="orientacion" name="orientacion" placeholder="Orientación">
+                <input type="text" class="form-control" id="Orientacion" name="Orientacion" placeholder="Orientación">
               </div>
             </div>
           </div>
@@ -126,19 +126,19 @@
             <div class="col-4">
               <div class="form-group">
                 <label for="disposicion">Disposición</label>
-                <input type="text" class="form-control" id="disposicion" name="disposicion" placeholder="Disposición">
+                <input type="text" class="form-control" id="Disposicion" name="Disposicion" placeholder="Disposición">
               </div>
             </div>
             <div class="col-4">
               <div class="form-group">
                 <label for="estado">Estado</label>
-                <input type="text" class="form-control" id="estado" name="estado" placeholder="Estado">
+                <input type="text" class="form-control" id="Estado" name="Estado" placeholder="Estado">
               </div>
             </div>
             <div class="col-4">
               <div class="form-group">
                 <label for="descripcion">Descripción</label>
-                <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción">
+                <input type="text" class="form-control" id="Descripcion" name="Descripcion" placeholder="Descripción">
               </div>
             </div>
           </div>
