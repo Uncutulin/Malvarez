@@ -12,7 +12,8 @@
         </button>
       </div>
       <div class="modal-body">      
-        <form>  
+        
+      <form action="<?=site_url('../../postPropiedad')?>" method="POST" class="needs-validation" novalidate>
 
         <!--
             <div class="col-4">
@@ -23,8 +24,6 @@
             </div>
             -->
 
-
-<!--
           <div class="row">
             <div class="col-4">
               <div class="form-group">
@@ -143,24 +142,10 @@
               </div>
             </div>
           </div>
--->
-          <!--
-            <div class="form-group">
-              <label for="exampleInputFile">File input</label>
-              <div class="input-group">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="exampleInputFile">
-                  <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                </div>
-              </div>
-            </div>
-          -->
-          <!-- /.card-body -->     
-
 
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
       </div>
     </div>
   </div>
@@ -168,31 +153,5 @@
 
 
 <script type="text/javascript">
-  //$("div#myId").dropzone({ url: "/file/post" });
-
-  //Dropzone.options.drop = {
-  //uploadMultiple: true,
-  //paramName: "file", // The name that will be used to transfer the file
-  //maxFilesize: 2, // MB
-  //acceptedFiles: "image/*"
-  /*
-  accept: function(file, done) {
-    if (file.name == "justinbieber.jpg") {
-      done("Naha, you don't.");
-    }
-    else { done(); }
-  }*/
-//};
-
-
-//if ($('#dropzone').length) {
- // $("div#dropzone").dropzone({ url: "<?=base_url('/../../assets/adjuntos/')?>" });
-  // other code here
-//}
-
-/*
-var dropzone = new Dropzone("#archivos", {
-  url: ''
-});*/
 
 </script>
