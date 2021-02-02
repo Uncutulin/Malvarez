@@ -77,7 +77,7 @@ $route['getUsuario/(:num)'] = 'usuario/getUsuario/$1';
 $route['putEstadoUsuario/(:num)'] = 'usuario/putEnabledDisabledUsuario/$1';
 
 //Imagenes
-$route['ajuntoImagen'] = 'adjunto/SubirImagen';
+$route['ajuntoImagen/(:num)'] = 'adjunto/SubirImagen/$1';
 $route['adjuntoListado/(:num)'] = 'propiedad/ListadoAdjuntos/$1';
 
 

@@ -9,6 +9,7 @@ class Adjunto extends CI_Controller {
 		if(!$this->session->userdata("login")){
 			redirect("../../../");
 		}
+		$this->load->model('AdjuntoModel');
 	}
 
 	public function index()
@@ -16,57 +17,95 @@ class Adjunto extends CI_Controller {
 		
 	}
 
-	public function SubirImagen()
-	{
-			//var_dump($this->input->post);
-		
-	/*
-	 $data = $this->security->xss_clean($this->input->raw_input_stream);
-   	 $items = json_decode($data);*/	
-
-   	 //echo "Controlador";
-
-   	 //echo "Controlador";
-/*
-		if(isset($_POST['Files'])){
-			var_dump("siiii POST Adjuntos");
-		}
-
-		if(isset($_FILES['Files'])){
-			var_dump("siiii FILE Adjuntos");
-		}*/
-		
+	public function SubirImagen($id)
+	{		
 		if(isset($_FILES['file']))
-		{
-			//var_dump($_FILES);
-
-
-			$mi_archivo = $_FILES['file']['tmp_name'];
-	        $config['upload_path'] = base_url("../../../assets/uploads/");
-	        $config['file_name'] = "nombre_archivo";
-	        $config['allowed_types'] = "*";
-	        $config['max_size'] = "50000";
-	        $config['max_width'] = "2000";
-	        $config['max_height'] = "2000";
-	        $config['file_name'] = $_FILES['file']['name'];
-
-	        $this->load->library('upload', $config);
-
-	        var_dump($mi_archivo);
-	        if (!$this->upload->do_upload($mi_archivo)) {
-            //*** ocurrio un error
-	            $data['uploadError'] = $this->upload->display_errors();
-	            echo $this->upload->display_errors();
-	            return;
-	        }
-
-	        $data['uploadSuccess'] = $this->upload->data();
-
+		{	
 			/*
-			if(isset($_FILES['file']['tmp_name']) && !empty($_FILES['file']['tmp_name'])){
-				echo "siiii";
-				echo $_FILES['file']['tmp_name'];
-			}*/
+			var_dump($_FILES);
+	        $f1= fopen($_FILES['file']['tmp_name'],"rb");
+	        $foto_size= $_FILES["file"]["size"];
+
+	        $foto_reconvertida = fread($f1, $foto_size);
+			//$foto_reconvertida->adaptiveResizeImage(1024,768);
+	        $foto_reconvertida = base64_encode($foto_reconvertida);
+	        fclose($f1);*/
+
+	        $base = $this->redimensionar_imagen($_FILES['file']['tmp_name']);
+
+	        $data = array(				
+				'IdProp' => $id,
+				'Img' => $base,
+				'Activo' => 1
+			);
+
+	        $this->AdjuntoModel->postImage($data);	
+
+			
+		}else{
+			echo "nada";
 		}
 	}
+
+
+
+
+
+
+	//Como redimensionar una imagen con php
+
+    function redimensionar_imagen($tmp_name){  
+    	//var_dump("asdasd");
+        //Imagen original
+		$rtOriginal=$tmp_name;
+
+		//Crear variable
+		$original = imagecreatefromjpeg($rtOriginal);
+
+		//Ancho y alto máximo
+		$max_ancho = 1024; $max_alto = 768;
+		 
+		//Medir la imagen
+		list($ancho,$alto)=getimagesize($rtOriginal);
+
+		//Ratio
+		$x_ratio = $max_ancho / $ancho;
+		$y_ratio = $max_alto / $alto;
+
+		//Proporciones
+		if(($ancho <= $max_ancho) && ($alto <= $max_alto) ){
+		    $ancho_final = $ancho;
+		    $alto_final = $alto;
+		}
+		else if(($x_ratio * $alto) < $max_alto){
+		    $alto_final = ceil($x_ratio * $alto);
+		    $ancho_final = $max_ancho;
+		}
+		else {
+		    $ancho_final = ceil($y_ratio * $ancho);
+		    $alto_final = $max_alto;
+		}
+
+		//Crear un lienzo
+		$lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
+
+		//Copiar original en lienzo
+		imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final, $alto_final,$ancho,$alto);
+		 
+		//Destruir la original
+		imagedestroy($original);
+
+		ob_start();
+		// output the image - since ob is on: buffer it
+		imagejpeg($lienzo, null, 100);
+		// this break could be a problem - if this is in a control structure, remove it
+		// save the ob in $resouce
+		$resource = ob_get_contents();
+		// here is the image now in $resource AND in the output buffer since you didn't clean it (the ob)
+		// end ob and flush (= send the ob)
+		ob_end_flush();
+
+		return base64_encode($resource);
+    }
+
 }

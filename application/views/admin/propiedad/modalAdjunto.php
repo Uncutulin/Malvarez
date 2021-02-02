@@ -45,9 +45,6 @@
         <div id="dropzone">
           <center>
             <div class="form-container">
-
-
-
               <form action="" class="dropzone" id="FormUpload" name="file" enctype="multipart/fotm-data">
                 <div class="dz-message">
                   <div class="icon">
@@ -84,10 +81,10 @@ $(".guardarProducto").click(function(){
         var datosMultimedia = new FormData();
         datosMultimedia.append("file", arrayFiles[i]);
         datosMultimedia.append("orden", i);
-
-        console.log(arrayFiles);
+        var IdProp = $("#IdPropiedad").val();
+        //console.log(datosMultimedia);
         $.ajax({          
-          url: "<?=site_url('../../../ajuntoImagen')?>",
+          url: "<?=site_url('../../../ajuntoImagen/')?>"+IdProp,
           method: 'POST',
           data: datosMultimedia,
           cache: false,
@@ -95,7 +92,8 @@ $(".guardarProducto").click(function(){
           processData: false,
 
           success: function(respuesta){
-            console.log(respuesta);
+            location.reload();
+            //console.log(respuesta);
             /*
             listaMultimedia.push({'foto': respuesta});
             multimediaFisica = JSON.stringify(listaMultimedia);

@@ -2,7 +2,11 @@
 
 <script src="<?=base_url('/../../../assets/js/dropzone.js')?>"></script>
 <link rel="stylesheet" type="text/css" href="<?=base_url('/../../../assets/css/dropzone.css')?>">
+<!--
 
+<img src="data:image/jpeg;base64,">
+
+-->
 <div class="content-wrapper" style="min-height: 1662.75px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -10,6 +14,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>Propiedad</h1>
+            <input type="text" name="IdPropiedad" id="IdPropiedad" hidden="hidden" value="<?=$Propiedad->IdProp?>">
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -95,23 +100,23 @@
               <table class="table" id="listadoAdjuntos">
               <thead>
                 <tr>
-                  <th scope="col">Nombre</th>
                   <th scope="col">Tipo</th>
                   <th scope="col">Imagen</th>
                   <th scope="col">Acciones</th>                  
                 </tr>
               </thead>
               <tbody>
-                <tr>  
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>Mark</td>
+                <?php foreach ($Adjuntos as $key => $value) {
+                  echo "<tr><td>A</td>";
+                  echo '<td><img class="rounded" src="data:image/jpeg;base64,'.$value->Img.'" style="width: 9%;"></td>';
+                 ?>
                   <td>
                     <button type="button" class="btn btn-danger btn-sm" onclick="">
                       <i class="fas fa-trash-alt"></i>
                     </button>
                   </td>
-                </tr>                
+                </tr>  
+                <?php } ?>              
               </tbody>
             </table>                
           </div>
@@ -146,10 +151,13 @@ Dropzone.options.FormUpload = {
   paramName: "file", // The name that will be used to transfer the file
   maxFilesize: 10, // MB
   addRemoveLinks: true,
+  resizeWidth: 600,
+  resizeHeight: 400,
   dictRemoveFile: "Eliminar",
   init: function(){
     //funcion para subir las imagenes
     this.on("addedfile", function(file){
+      console.log(file);
       arrayFiles.push(file);
     })
     //funcion para eliminar las imagenes

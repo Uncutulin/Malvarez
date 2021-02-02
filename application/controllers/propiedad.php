@@ -24,10 +24,14 @@ class Propiedad extends CI_Controller {
 
 	public function ListadoAdjuntos($id)
 	{
-		$this->load->model('PropiedadModel');
+		$this->load->model('PropiedadModel');		
+		$this->load->model('AdjuntoModel');
 
 		$Propiedad = $this->PropiedadModel->getPropiedadbyId($id);
+		$Adjuntos = $this->AdjuntoModel->getImagesAllByIdPropiedad($id);
+
 		$data['Propiedad'] = $Propiedad;
+		$data['Adjuntos'] = $Adjuntos;
 
 		$this->load->view('admin/header');
 		$this->load->view('admin/sidebar');		
