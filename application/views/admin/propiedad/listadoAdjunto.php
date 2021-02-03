@@ -168,6 +168,9 @@ Dropzone.options.FormUpload = {
   }
 }
 
-
+myDropzone.on("success", function(file, message){
+    $("#msg").html(message);
+    setTimeout(function(){window.location.href="index.php"},800);
+});
 
 </script>

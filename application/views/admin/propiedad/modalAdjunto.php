@@ -72,6 +72,8 @@
   
 
 $(".guardarProducto").click(function(){ 
+  console.log(arrayFiles);
+  console.log(arrayFiles.length);
   if(arrayFiles != ""){
     if(arrayFiles.length > 0){
       var listaMultimedia = [];
@@ -80,10 +82,12 @@ $(".guardarProducto").click(function(){
       for (var i = 0; i < arrayFiles.length; i++) {
         var datosMultimedia = new FormData();
         datosMultimedia.append("file", arrayFiles[i]);
-        datosMultimedia.append("orden", i);
+        datosMultimedia.append("orden", i);     
+
         var IdProp = $("#IdPropiedad").val();
-        //console.log(datosMultimedia);
-        $.ajax({          
+        console.log(datosMultimedia);
+
+        $.ajax({         
           url: "<?=site_url('../../../ajuntoImagen/')?>"+IdProp,
           method: 'POST',
           data: datosMultimedia,
@@ -92,7 +96,7 @@ $(".guardarProducto").click(function(){
           processData: false,
 
           success: function(respuesta){
-            location.reload();
+            //location.reload();
             //console.log(respuesta);
             /*
             listaMultimedia.push({'foto': respuesta});
@@ -104,8 +108,9 @@ $(".guardarProducto").click(function(){
             finalFor ++;
             //$("#guardarProducto").html("Gurdar Producto");  */       
           }
-        });      
-      }
+        });  
+        }    
+      
   }else{
     alert("Debe elegir alguna imagen");  
  }
