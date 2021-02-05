@@ -96,7 +96,7 @@ $(".guardarProducto").click(function(){
           processData: false,
 
           success: function(respuesta){
-            //location.reload();
+            location.reload();
             //console.log(respuesta);
             /*
             listaMultimedia.push({'foto': respuesta});

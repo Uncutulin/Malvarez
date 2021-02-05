@@ -12,7 +12,7 @@ class Adjunto extends CI_Controller {
 		}
 		$this->load->model('AdjuntoModel');
 
-		$this->load->library('ImageResize');
+		//$this->load->library('ImageResize');
 	}
 
 	public function index()
@@ -20,207 +20,104 @@ class Adjunto extends CI_Controller {
 		
 	}
 
+
+ //redimensionar imagen
+	function resizeImagen($ruta,$nombre,$ancho,$alto,$calidad,$nombreN,$extension){
+      $rutaImagenOriginal = $ruta.$nombre;
+      if($extension == 'GIF' || $extension == 'gif'){
+        $img_original = imagecreatefromgif($rutaImagenOriginal);
+      }
+      if($extension == 'jpg' || $extension == 'JPG' || $extension == 'peg' || $extension == 'PEG'){
+        $img_original = imagecreatefromjpeg($rutaImagenOriginal);
+      }
+      if($extension == 'png' || $extension == 'PNG'){
+        $img_original = imagecreatefrompng($rutaImagenOriginal);
+      }
+      $max_ancho = $ancho;
+      $max_alto = $alto;
+      list($ancho,$alto)=getimagesize($rutaImagenOriginal);
+      $x_ratio = $max_ancho / $ancho;
+      $y_ratio = $max_alto / $alto;
+      if( ($ancho <= $max_ancho) && ($alto <= $max_alto) ){//Si ancho 
+      $ancho_final = $ancho;
+          $alto_final = $alto;
+      } elseif (($x_ratio * $alto) < $max_alto){
+          $alto_final = ceil($x_ratio * $alto);
+          $ancho_final = $max_ancho;
+      } else{
+          $ancho_final = ceil($y_ratio * $ancho);
+          $alto_final = $max_alto;
+      }
+
+      $tmp=imagecreatetruecolor($ancho_final,$alto_final);
+      imagecopyresampled($tmp,$img_original,0,0,0,0,$ancho_final, $alto_final,$ancho,$alto);
+      imagedestroy($img_original);
+      imagejpeg($tmp,$ruta.$nombreN,$calidad);
+  }
+
+
 	public function SubirImagen($id)
-	{		
-		var_dump($_FILES);
-		if(isset($_FILES['file']))
-		{	
-			$base ="";
+	{
+		if(isset($_FILES['file'])){ // comprobamos que se ha enviado el formulario
+		    // comprobar que han seleccionado una foto
+		    if($_FILES['file']['name'] != ""){ // El campo foto contiene una imagen...        
+		        // Primero, hay que validar que se trata de un JPG/GIF/PNG
+		        $allowedExts = array("jpg", "peg", "gif", "png", "JPG", "GIF", "PNG", "PEG");
+		        //$extension = "jpg";
+		        $extension = substr( $_FILES["file"]["name"],-3);
+		        if ((($_FILES["file"]["type"] == "image/gif")
+		                || ($_FILES["file"]["type"] == "image/jpeg")
+		                || ($_FILES["file"]["type"] == "image/png")
+		                || ($_FILES["file"]["type"] == "image/jpg"))
+		                && in_array($extension, $allowedExts)) {
+		            // el archivo es un JPG/GIF/PNG, entonces...
+		            
+		            $extension = substr( $_FILES["file"]["name"],-3);
+		             //$extension = end(explode('.', $_FILES['foto']['name']));
+		            $foto = substr(md5(uniqid(rand())),0,10).".".$extension;
+		            $directorio = base_url()."../assets/adjuntos";
+		            //$directorio = dirname(__FILE__); // directorio de tu elección
+		            // almacenar imagen en el servidor
+		            move_uploaded_file($_FILES['file']['tmp_name'], $directorio.'/'.$foto);
+		            //$minFoto = 'min_'.$foto;
+		            //$resFoto = 'PDB_'.$_POST['dni'].'_'.$_POST['cod_unidad'].'.'.$extension;
+		            $resFoto = 'aaaa.'.$extension;
+		            
+		            //tamaño en bits de la imagen cargada
+		            $tam_archivo = filesize($directorio.'/'.$foto);
+		            //ancho y alto de la imagen cargada
+		            $tam_ancho_alto = getimagesize($directorio.'/'.$foto);
 
+		            if($tam_ancho_alto[0]>$tam_ancho_alto[1]){
+		                $ancho=1024;
+		                $alto=768;
+		            }else{
+		                $ancho=768;
+		                $alto=1024;                    
+		            }
+		            $calidad=50;
 
-		    //$base = $this->redimensionar_imagen($_FILES['file']['tmp_name'], $_FILES['file']['type'], $_FILES["file"]["size"]);
-		    $base = $this->redimensionar_imagen2($_FILES['file']['tmp_name'], $_FILES['file']['type'], $_FILES["file"]["size"],$_FILES['file']['name']);
+		            $this->resizeImagen($directorio.'/', $foto, $ancho, $alto, $calidad, $resFoto, $extension);
+		            
+		            //abrir el archivo de la imagen reducida generada para insertarla en la BD
+		            $fp = fopen($directorio.'/'.$resFoto, 'r');
+		            if ($fp){
+		              $data = fread($fp, filesize($directorio.'/'.$resFoto));
+		              fclose($fp);
+		              $data = base64_encode ($data);
+		              unlink($directorio.'/'.$foto);
+		              unlink($directorio.'/'.$resFoto);
+		              /*CONSULTA PARA GUARDAR EL BLOB EN LA BD*/
+		              $datos = array(				
+							'id_propiedad' => $id,
+							'base64' => $data,
+							'activo' => 1
+						);
 
-	        $data = array(				
-				'id_propiedad' => $id,
-				'base64' => $base,
-				'activo' => 1
-			);
-
-	        $this->AdjuntoModel->postImage($data);	
-
-			
-		}else{
-			echo "nada";
+				        $this->AdjuntoModel->postImage($datos);	
+		            }
+		        }        
+		    }
 		}
 	}
-
-
-	 function redimensionar_imagen2($tmp_name, $type, $size, $name)
-	 {
-
-	 	$viejaImagen = imagecreatefromjpeg($tmp_name);
-	 	$image = new ImageResize($viejaImagen);
-		$image->resizeToWidth(180);
-		
-		if ($extension == "jpg" || $extension == "jpeg") {
-			$image->quality_jpg = 100; //La mejor calidad
-		} else if ($extension == "png") {
-			$image->quality_png = 9; //La mejor compresión
-		}
-		
-		//Guardar miniatura en la carpeta correspondiente
-		var_dump($Imagen);die;
-
-		$image->save($carpetaUploads."thumbnails/".$nombreImagen);
-		
-		header("HTTP/1.1 200 OK");
-		header('Content-Type: application/json');
-		$datos = array('estado' => '200');
-		die(json_encode($datos, JSON_FORCE_OBJECT));
-
-
-
-
-
-
-
-
-
-
-
-
-
-	 	/*
-	 	$ancho = 120;
-	 	$info = pathinfo($name);
-
-	 	if($info['extension'] == 'jpg'){
-
-	 	}
-	 	$tamano = getimagesize($tmp_name);
-
-	 	$anchoImg = $tamano[0];
-	 	$altoImg = $tamano[1];
-
-
-	 	$alto = intval($altoImg * $ancho / $anchoImg);
-
-	 	$viejaImagen = imagecreatefromjpeg($tmp_name);
-	 	$nuevaImagen = imagecreatetruecolor($ancho, $alto);
-		imagecopyresampled($nuevaImagen,$viejaImagen,0,0,0,0,$ancho, $alto,$anchoImg,$altoImg);
-	 	ob_start();
-
-		imagejpeg($nuevaImagen, null, 100);
-		$resource = ob_get_contents();
-		ob_end_flush();
-		return base64_encode($resource);
-		*/
-	 }
-
-
-
-
-
-
-
-
-
-	//Como redimensionar una imagen con php
-
-    function redimensionar_imagen($tmp_name, $type, $size){  
-        //Imagen original
-		$rtOriginal=$tmp_name;
-
-		$imagen = getimagesize($tmp_name);//Sacamos la información
-		$ancho = $imagen[0];
-		$alto = $imagen[1];
-
-		//Ancho y alto máximo
-		$max_ancho =1024; $max_alto = 768;
-		if($alto>$max_alto || $ancho>$max_ancho)
-		{
-			//Crear variable
-			/*
-			$original = imagecreatefrompng($rtOriginal);
-
-			$original = imagecreatefromjpeg($rtOriginal);*/
-			 
-			//Medir la imagen
-			list($alto,$ancho)=getimagesize($rtOriginal);
-
-			//Ratio
-			$x_ratio = $max_ancho / $ancho;
-			$y_ratio = $max_alto / $alto;
-
-			//Proporciones
-			if(($ancho <= $max_ancho) && ($alto <= $max_alto) ){
-			    $ancho_final = $ancho;
-			    $alto_final = $alto;
-			}
-			/*
-			else if(($x_ratio * $alto) < $max_alto){
-			    $alto_final = ceil($x_ratio * $alto);
-			    $ancho_final = $max_ancho;
-			}*/
-			else {
-			    //$ancho_final = ceil($y_ratio * $ancho);
-			    //$alto_final = $max_alto;
-
-			    $ancho_final = $max_ancho;
-			    $alto_final = $max_alto;
-			}
-/*
-			//Crear un lienzo
-			$lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
-
-			//Copiar original en lienzo
-			imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final, $alto_final,$ancho,$alto);
-			 
-			//Destruir la original
-			imagedestroy($original);
-
-			ob_start();*/
-
-			if($type=='image/jpeg' || $type=='image/jpg'){
-				echo "- jpg o jpeg -";
-
-				$original = imagecreatefromjpeg($rtOriginal);
-				//Crear un lienzo
-				$lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
-
-				//Copiar original en lienzo
-				imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final, $alto_final,$ancho,$alto);
-				//imagecopyresampled($lienzo,$original,0,0,0,0,$alto_final, $ancho_final,$alto,$ancho);
-				 
-				//Destruir la original
-				imagedestroy($original);
-
-				ob_start();
-
-				imagejpeg($lienzo, null, 100);
-			
-			}else{
-			/*				
-				echo "- png -";
-				$original = imagecreatefrompng($rtOriginal);
-
-				//Crear un lienzo
-				$lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
-
-				//Copiar original en lienzo
-				imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final, $alto_final,$ancho,$alto);
-				 
-				//Destruir la original
-				imagedestroy($original);
-
-				ob_start();
-
-				imagepng($lienzo, null, );
-			}*/
-			}
-			$resource = ob_get_contents();
-
-			ob_end_flush();
-		 
-		}else{
-
-	        $f1= fopen($tmp_name,"rb");
-	        $foto_reconvertida = fread($f1, $size);
-	        $resource = $foto_reconvertida;
-	        fclose($f1);
-		}
-		return base64_encode($resource);
-    }
-
 }

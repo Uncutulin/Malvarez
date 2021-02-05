@@ -70,7 +70,7 @@
 
                 <strong><i class="fas fa-map-marker-alt mr-1"></i> Ubicación</strong>
 
-                <p class="text-muted"><?=$Propiedad->Ubicacion?></p>
+                <p class="text-muted"><?=$Propiedad->ubicacion?></p>
 
                 <hr>
 
@@ -108,7 +108,7 @@
               <tbody>
                 <?php foreach ($Adjuntos as $key => $value) {
                   echo "<tr><td>A</td>";
-                  echo '<td><img class="rounded" src="data:image/jpeg;base64,'.$value->Img.'" style="width: 9%;"></td>';
+                  echo '<td><img class="rounded" src="data:image/jpeg;base64,'.$value->base64.'" style="width: 9%;"></td>';
                  ?>
                   <td>
                     <button type="button" class="btn btn-danger btn-sm" onclick="">
