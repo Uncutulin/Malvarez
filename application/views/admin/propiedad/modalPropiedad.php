@@ -34,7 +34,7 @@
             <div class="col-4">   
               <div class="form-group">
                     <label>Departamento</label>
-                    <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" style="width: 100%;" data-select2-id="2" tabindex="-1" aria-hidden="true">
+                    <select class="form-control select2 select2-danger select2-hidden-accessible" id="dependencia" data-dropdown-css-class="select2-danger" style="width: 100%;" data-select2-id="2" tabindex="-1" aria-hidden="true">
                        <?php
                         foreach ($listadoDepartamento as $key => $departamento) {
                           echo '<option class="red-input" value="'.$departamento->id_departamento.'">'.$departamento->descripcion.'</option>';
@@ -46,7 +46,7 @@
              <div class="col-4">   
               <div class="form-group">
                     <label>Ciudad</label>
-                    <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" style="width: 100%;" data-select2-id="3" tabindex="-1" aria-hidden="true">
+                    <select class="form-control select2 select2-danger select2-hidden-accessible" id="ciudad" data-dropdown-css-class="select2-danger" style="width: 100%;" data-select2-id="3" tabindex="-1" aria-hidden="true">
                        <?php
                         foreach ($listadoTipoPropiedad as $key => $TipoPropiedades) {
                           echo '<option class="red-input" value="'.$TipoPropiedades->Id.'">'.$TipoPropiedades->Descripcion.'</option>';
@@ -160,4 +160,22 @@
 
 <script type="text/javascript">
     $('.select2').select2();  
+
+
+    $("#dependencia").change(function(){
+          var dependencia_id = $('#dependencia').val()
+          $.ajax({         
+          url: "<?=site_url('../../../BuscarCiudades/')?>"+dependencia_id,
+          method: 'POST',
+          data: datosMultimedia,
+          cache: false,
+          contentType: false,
+          processData: false,
+
+          success: function(respuesta){
+            console.log()
+          }
+        });  
+            
+        });
 </script>
