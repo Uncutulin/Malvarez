@@ -59,4 +59,12 @@ class PropiedadModel extends CI_Model {
         $query = $this->db->get('ciudad');
         return $query->result();
 	}
+
+	public function getPropiedadCatalogo($id)
+	{
+        $this->db->where('id_propiedad', $id);
+        $query = $this->db->get('images');
+        return $query->result();
+	}
+
 }
