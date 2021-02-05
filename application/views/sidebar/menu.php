@@ -40,6 +40,9 @@
     <link href="/<?=base_url('')?>/assets/css/product.css" rel="stylesheet">
 
     <link href="/<?=base_url('')?>/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet" href="/<?=base_url('/plugins/fontawesome-free/css/all.min.css')?>">
   </head>
   <body>
   

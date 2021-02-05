@@ -1,3 +1,4 @@
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -37,12 +38,13 @@
       <div class="container-fluid">
 		  <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#" style="color: #000000; text-decoration: auto;">&lt;- Volver a Resultados</a></li>
+              <li class="breadcrumb-item"><a href="#" style="color: #6c757d; text-decoration: auto;"><i class="fas fa-arrow-left"></i> Volver a Resultados</a></li>
               <li class="breadcrumb-item active">Venta</li>
             </ol>
           </div>
-          <div class="col-sm-6">
-            <h1>Grand Bourg</h1>
+          <div class="col-sm-6"><h1>
+            <a href="" data-toggle="tooltip" title="" data-placement="top" data-original-title="Volver"><i class="fas fa-arrow-left"></i></a>
+            Grand Bourg</h1>
           </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -55,6 +57,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-12 col-sm-6">
+<<<<<<< HEAD
               <h3 class="d-inline-block d-sm-none">LOWA Men’s Renegade GTX Mid Hiking Boots Review</h3>
               <div class="col-12">
                 <img src="<?=base_url('../../assets/img/depa1.jpg')?>" class="product-image" alt="Product Image">
@@ -65,6 +68,47 @@
                 <div class="product-image-thumb"><img src="<?=base_url('../../assets/img/ph1.jpg')?>" alt="Product Image"></div>
               </div>
             </div>
+=======
+              <div class="col">
+        <div class="card shadow-sm">        
+        <div id="carouselExampleIndicators" class="carousel slide" style="width: 100%;">
+          <ol class="carousel-indicators">
+          <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+          <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+          <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="<?=base_url('../../assets/img/casa1.jpg')?>" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="<?=base_url('../../assets/img/ph1.jpg')?>" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="<?=base_url('../../assets/img/casa2.jpg')?>" class="d-block w-100" alt="...">
+          </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title"><a href="/./sitio/index.php/detpropiedad">Venta - Vte. Lopez</a></h4>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <h5 class="card-title" style="padding-bottom: 10px;">Precio: u$s 100.000</h5>
+          <div class="d-flex justify-content-between align-items-center">
+          <button type="button" class="btn btn-sm btn-outline-secondary" onclick="edit()">Detalle</button>          <button type="button" class="btn btn-sm btn-outline-secondary" align="right">Consultar</button>
+          </div>
+        </div>
+        </div>
+      </div>
+            </div>           
+>>>>>>> b07e4a4000084dab259cb21f7d5bffbaba68c69b
             <div class="col-12 col-sm-6">
               <h3 class="my-3">LOWA Men’s Renegade GTX Mid Hiking Boots Review</h3>
               <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.</p>
