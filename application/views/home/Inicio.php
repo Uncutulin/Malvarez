@@ -51,7 +51,7 @@
 		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 			<div class="col">
 			  <div class="card shadow-sm">				
-				<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="width: 100%;">
+				<div id="carouselExampleIndicators" class="carousel slide" style="width: 100%;">
 				  <ol class="carousel-indicators">
 					<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
 					<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
@@ -78,11 +78,13 @@
 				  </a>
 				</div>
 				<div class="card-body">
-				  <h4 class="card-title">Venta - Vte. Lopez</h4>
+				  <h4 class="card-title"><a href="/<?=site_url('detpropiedad')?>">Venta - Vte. Lopez</a></h4>
 				  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 				  <h5 class="card-title"style="padding-bottom: 10px;">Precio: u$s 100.000</h5>
-				  <div class="d-flex justify-content-between align-items-center">					
-				  <button type="button" class="btn btn-sm btn-outline-secondary">Detalle</button>				 
+				  <div class="d-flex justify-content-between align-items-center">
+				  <?php
+					echo '<button type="button" class="btn btn-sm btn-outline-secondary" onclick="edit()">Detalle</button>'
+				  ?>
 				  <button type="button" class="btn btn-sm btn-outline-secondary" align="right">Consultar</button>
 				  </div>
 				</div>
@@ -90,12 +92,7 @@
 			</div>
 			<div class="col">
 			  <div class="card shadow-sm">				
-				<div id="carouselExampleIndicators1" class="carousel slide" data-bs-ride="carousel" style="width: 100%;">
-				  <ol class="carousel-indicators">
-					<li data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0" class="active"></li>
-					<li data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="1"></li>
-					<li data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="2"></li>
-				  </ol>
+				<div id="carouselExampleIndicators1" class="carousel slide" style="width: 100%;">
 				  <div class="carousel-inner">
 					<div class="carousel-item active">
 					  <img src="assets/img/ph1.jpg" class="d-block w-100" alt="...">
@@ -126,9 +123,10 @@
 				  </div>
 				</div>
 			  </div>
-			</div><div class="col">
+			</div>
+			<div class="col">
 			  <div class="card shadow-sm">				
-				<div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel" style="width: 100%;">
+				<div id="carouselExampleIndicators2" class="carousel slide" style="width: 100%;">
 				  <ol class="carousel-indicators">
 					<li data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active"></li>
 					<li data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1"></li>
@@ -221,7 +219,27 @@
 
 
 <!--<script src="assets/dist/js/bootstrap.bundle.min.js"></script>-->
-
-      
+<script>
+function edit(id){
+  $.ajax({
+    url: '<?=site_url()?>/../../detpropiedad
+    type: "GET",
+    dataType : 'json',
+    success: function(respuesta) {
+      console.log(respuesta);
+      $('#email').val(respuesta.Email);
+      $('#nombre').val(respuesta.Nombre);
+      $('#tel').val(respuesta.Tel);
+      $('#id').val(respuesta.Id);
+	  $('#clave').val(respuesta.Clave);
+      $('#exampleModal').modal('show');
+    },
+    error: function() {
+          console.log("No se ha podido obtener la información");
+      }
+  });
+}
+</script>
+  
   </body>
 </html>
