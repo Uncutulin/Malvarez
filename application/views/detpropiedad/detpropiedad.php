@@ -38,12 +38,13 @@
       <div class="container-fluid">
 		  <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#" style="color: #000000; text-decoration: auto;">&lt;- Volver a Resultados</a></li>
+              <li class="breadcrumb-item"><a href="#" style="color: #6c757d; text-decoration: auto;"><i class="fas fa-arrow-left"></i> Volver a Resultados</a></li>
               <li class="breadcrumb-item active">Venta</li>
             </ol>
           </div>
-          <div class="col-sm-6">
-            <h1>Grand Bourg</h1>
+          <div class="col-sm-6"><h1>
+            <a href="" data-toggle="tooltip" title="" data-placement="top" data-original-title="Volver"><i class="fas fa-arrow-left"></i></a>
+            Grand Bourg</h1>
           </div>
       </div><!-- /.container-fluid -->
     </section>
