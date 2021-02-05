@@ -31,7 +31,7 @@ class Usuario extends CI_Controller {
 			$data = array(
         		'email' => $email,
 				'nombre' => $nombre,
-				'tel' => $tel,
+				'telefono' => $tel,
 				'clave' => $clave,
 				'fecha' => $fecha,
 			);

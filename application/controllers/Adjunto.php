@@ -32,9 +32,9 @@ class Adjunto extends CI_Controller {
 		    $base = $this->redimensionar_imagen2($_FILES['file']['tmp_name'], $_FILES['file']['type'], $_FILES["file"]["size"],$_FILES['file']['name']);
 
 	        $data = array(				
-				'IdProp' => $id,
-				'Img' => $base,
-				'Activo' => 1
+				'id_propiedad' => $id,
+				'base64' => $base,
+				'activo' => 1
 			);
 
 	        $this->AdjuntoModel->postImage($data);	

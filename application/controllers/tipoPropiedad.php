@@ -27,7 +27,7 @@ class TipoPropiedad extends CI_Controller {
 		if($nombre!=NULL)
 		{
 			$data = array(
-        		'Descripcion' => $nombre,
+        		'descripcion' => $nombre,
 			);
 			if($id!=NULL)
 			{
@@ -56,7 +56,7 @@ class TipoPropiedad extends CI_Controller {
 
 		if($nombre!=NULL){
 			$data = array(
-        	'Descripcion' => $nombre,
+        	'descripcion' => $nombre,
 			);
 			$this->TipoPropiedadModel->putTipoPropiedad($data);	
 			redirect("../../tipoPropiedad");

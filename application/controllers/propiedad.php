@@ -9,9 +9,12 @@ class Propiedad extends CI_Controller {
 		$this->load->model('PropiedadModel');
 		$listadoTipoPropiedad = $this->TipoPropiedadModel->getTiposPropiedades(true);		
 		$listadoPropiedad = $this->PropiedadModel->getPropiedades(true);
-
+		$listadoDepartamento = $this->PropiedadModel->getDepartamentos();
+		//$listadoPropiedad = $this->PropiedadModel->getPropiedades(true);
+		//var_dump($listadoDepartamento);die;
 		$data['listadoTipoPropiedad'] = $listadoTipoPropiedad;
 		$data['listadoPropiedad'] = $listadoPropiedad;
+		$data['listadoDepartamento'] = $listadoDepartamento;
 
 		$this->load->view('admin/header');
 		$this->load->view('admin/sidebar');		
@@ -49,20 +52,20 @@ class Propiedad extends CI_Controller {
 		if(isset($_POST)){
 			$Id = isset($_POST['id']) ? $_POST['id'] : NULL;
 			$data = array(				
-        		'IdTipo' => $_POST['TipoPropiedad'],
-				'IdBarrio' => $_POST['Barrio'],
-				'Ubicacion' => $_POST['Ubicacion'],
-				'Ambientes' => $_POST['Ambientes'],
-				'Dormitorios' => $_POST['Dormitorios'],
-				'Banos' => $_POST['Bano'],
-				'Cocheras' => $_POST['Cochera'],
-				'Pisos' => $_POST['Pisos'],
-				'Antiguedad' => $_POST['Antiguedad'],
-				'Situacion' => $_POST['Situacion'],
-				'Expensas' => $_POST['Expensas'],
-				'Orientacion' => $_POST['Orientacion'],
-				'Disposicion	' => $_POST['Disposicion'],
-				'Condicion' => $_POST['Estado'],
+        		'id_tipo' => $_POST['TipoPropiedad'],
+				'id_barrio' => $_POST['Barrio'],
+				'ubicacion' => $_POST['Ubicacion'],
+				'ambientes' => $_POST['Ambientes'],
+				'dormitorios' => $_POST['Dormitorios'],
+				'banos' => $_POST['Bano'],
+				'cocheras' => $_POST['Cochera'],
+				'pisos' => $_POST['Pisos'],
+				'antiguedad' => $_POST['Antiguedad'],
+				'situacion' => $_POST['Situacion'],
+				'expensas' => $_POST['Expensas'],
+				'orientacion' => $_POST['Orientacion'],
+				'disposicion	' => $_POST['Disposicion'],
+				'condicion' => $_POST['Estado'],
 				//'fecha' => $_POST['Descripcion'],
 			);
 

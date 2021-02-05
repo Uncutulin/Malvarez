@@ -1,5 +1,8 @@
 
 
+<style type="text/css">
+
+</style>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   
@@ -11,43 +14,46 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">      
-        
+      <div class="modal-body">   
+
       <form action="<?=site_url('../../postPropiedad')?>" method="POST" class="needs-validation" novalidate>
         <input type="text" class="form-control" id="id" name="id" hidden="">
-        <!--
-            <div class="col-4">
-              <div class="form-group">
-                <label for="exampleInputPassword1">Nro Servicios</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-              </div>
-            </div>
-            -->
-
           <div class="row">
             <div class="col-4">
               <div class="form-group">
                   <label>Tipo Propiedad</label>
-                  <select class="form-control select2 select2-hidden-accessible" name="TipoPropiedad" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                    <?php
+                  <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                     <?php
                       foreach ($listadoTipoPropiedad as $key => $TipoPropiedades) {
                         echo '<option class="red-input" value="'.$TipoPropiedades->Id.'">'.$TipoPropiedades->Descripcion.'</option>';
                       }
                     ?>
-                  </select>
-                </div>
-              </div>
-            <div class="col-4">
-              <div class="form-group">
-                <label for="barrio">Nro Barrio</label>
-                <input type="text" class="form-control" id="Barrio" name="Barrio" placeholder="Barrio">
-              </div>
+                  </select>                  
+              </div>             
             </div>
-            <div class="col-4">
+            <div class="col-4">   
               <div class="form-group">
-                <label for="ubicacion">Ubicación</label>
-                <input type="text" class="form-control" id="Ubicacion" name="Ubicacion" placeholder="Ubicación">
-              </div>
+                    <label>Departamento</label>
+                    <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" style="width: 100%;" data-select2-id="2" tabindex="-1" aria-hidden="true">
+                       <?php
+                        foreach ($listadoDepartamento as $key => $departamento) {
+                          echo '<option class="red-input" value="'.$departamento->id_departamento.'">'.$departamento->descripcion.'</option>';
+                        }
+                      ?>
+                    </select>                  
+                </div>             
+            </div>
+             <div class="col-4">   
+              <div class="form-group">
+                    <label>Ciudad</label>
+                    <select class="form-control select2 select2-danger select2-hidden-accessible" data-dropdown-css-class="select2-danger" style="width: 100%;" data-select2-id="3" tabindex="-1" aria-hidden="true">
+                       <?php
+                        foreach ($listadoTipoPropiedad as $key => $TipoPropiedades) {
+                          echo '<option class="red-input" value="'.$TipoPropiedades->Id.'">'.$TipoPropiedades->Descripcion.'</option>';
+                        }
+                      ?>
+                    </select>                  
+                </div>             
             </div>
           </div>
 
@@ -153,5 +159,5 @@
 
 
 <script type="text/javascript">
-
+    $('.select2').select2();  
 </script>
