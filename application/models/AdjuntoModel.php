@@ -20,11 +20,10 @@ class AdjuntoModel extends CI_Model {
 	}
 
 
-	public function getPropiedadbyId($id)
+	public function deleteAdjunto($id)
 	{
-		$this->load->database();
-        $query = $this->db->get_where('propiedades', array('id_propiedad' => $id));
-        return $query->result()[0];
+		$this->db->where('id_imagenes', $id);
+		$this->db->delete('images');
 	}
 
 	public function postImage($data)
@@ -33,24 +32,5 @@ class AdjuntoModel extends CI_Model {
         $this->db->insert('images', $data);
 	}
 
-	public function putPropiedad($id , $data)
-	{
-		$this->load->database();
-        $this->db->where('id_propiedad', $id);
-		$this->db->update('propiedades', $data);
-	}
-
-	public function disabledPropiedad($id)
-	{
-		$this->load->database();
-        $this->db->where('id_propiedad', $id);
-		$this->db->update('propiedades', array('activo' =>0));
-	}
-
-	public function enabledPropiedad($id)
-	{
-		$this->load->database();
-        $this->db->where('id_propiedad', $id);
-		$this->db->update('propiedades', array('activo' =>1));
-	}
+	
 }

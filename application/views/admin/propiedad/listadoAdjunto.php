@@ -111,9 +111,9 @@
                   echo '<td><img class="rounded" src="data:image/jpeg;base64,'.$value->base64.'" style="width: 9%;"></td>';
                  ?>
                   <td>
-                    <button type="button" class="btn btn-danger btn-sm" onclick="">
+                    <a type="button" class="btn btn-danger btn-sm" href="<?=base_url('../../borrarImagen/').$Propiedad->id_propiedad?>/<?=$value->id_imagenes?>">
                       <i class="fas fa-trash-alt"></i>
-                    </button>
+                    </a>
                   </td>
                 </tr>  
                 <?php } ?>              

@@ -120,4 +120,10 @@ class Adjunto extends CI_Controller {
 		    }
 		}
 	}
+
+	public function DeleteAdjunto($id_propiedad, $id_imagen)
+	{
+		$this->AdjuntoModel->deleteAdjunto($id_imagen);
+		redirect('/../../../../adjuntoListado/'.$id_propiedad, 'refresh');
+	}
 }

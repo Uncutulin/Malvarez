@@ -26,6 +26,11 @@
 	  .form-control {
 		appearance: auto;
 	  }
+
+    .listado-Carrusel{
+      height: 235px!important;
+      width: 419px!important;
+    }
     </style>    
   </head>
   <body>    
@@ -91,7 +96,7 @@
           { ?>
           <div class="col">
           <div class="card shadow-sm">        
-          <div id="carouselExampleIndicators-<?=$itemCatalogo['propiedad']->id_propiedad?>" class="carousel slide" data-bs-ride="carousel" style="width: 100%;">
+          <div id="carouselExampleIndicators-<?=$itemCatalogo['propiedad']->id_propiedad?>" class="carousel slide"  style="width: 100%;">
 
 
             <div class="carousel-inner">
@@ -104,7 +109,7 @@
                       }else{
                         echo '<div class="carousel-item">';
                       }
-                      echo '<img src="data:image/jpeg;base64,'.$value->base64.'" class="d-block w-100" alt="...">
+                      echo '<img src="data:image/jpeg;base64,'.$value->base64.'" class="d-block w-100 listado-Carrusel" alt="...">
                           </div>';
                     $cont++;
                   }

@@ -36,34 +36,34 @@
               <tbody>                
                  <?php				   
 				   foreach ($listadoUsuario as $key => $value) {
-					   if($value->Activo==1){
+					   if($value->activo==1){
 						   $style = "color: black;";
-					   }elseif($value->Activo==0){
+					   }elseif($value->activo==0){
 						   $style = "color: darkgray;";
 					   }
                       echo "<tr>";
-					  echo "<td style=\"".$style."\">".$value->Nombre."</td>";
-                      echo "<td style=\"".$style."\">".$value->Email."</td>";
-					  echo "<td style=\"".$style."\">".$value->Tel."</td>";
-					  echo "<td style=\"".$style."\">".$value->Fecha."</td>";				
-					    if($value->Activo==1){
+					  echo "<td style=\"".$style."\">".$value->nombre."</td>";
+                      echo "<td style=\"".$style."\">".$value->email."</td>";
+					  echo "<td style=\"".$style."\">".$value->telefono."</td>";
+					  echo "<td style=\"".$style."\">".$value->fecha."</td>";				
+					    if($value->activo==1){
                           echo "<td style=\"".$style."\"><center>Activo</center></td>";
-                        }elseif($value->Activo==0){
+                        }elseif($value->activo==0){
                           echo "<td style=\"".$style."\"><center>Inhabilitado</center></td>";
                         }
                       echo '<td><center>
-                        <button type="button" onclick="edit('.$value->Id.')" class="btn btn-warning btn-sm pop" data-toggle="popover">
+                        <button type="button" onclick="edit('.$value->id_usuario.')" class="btn btn-warning btn-sm pop" data-toggle="popover">
                           <i class="fas fa-pen"></i>
                         </button>
                         &nbsp;';
 					  echo '</center></td>';
 					  echo '<td><center>';
-                        if($value->Activo==1){
-                          echo '<button type="button" class="btn btn-danger btn-sm" onclick="delet('.$value->Id.','.$value->Activo.')">
+                        if($value->activo==1){
+                          echo '<button type="button" class="btn btn-danger btn-sm" onclick="delet('.$value->id_usuario.','.$value->activo.')">
                                   <i class="fas fa-trash-alt"></i>
                                 </button>';
-                        }elseif($value->Activo==0){
-                          echo '<button type="button" class="btn btn-success btn-sm" onclick="delet('.$value->Id.','.$value->Activo.')">
+                        }elseif($value->activo==0){
+                          echo '<button type="button" class="btn btn-success btn-sm" onclick="delet('.$value->id_usuario.','.$value->activo.')">
                                   <i class="fas fa-check"></i>
                                 </button>';
                         }
@@ -105,11 +105,11 @@ function edit(id){
     dataType : 'json',
     success: function(respuesta) {
       console.log(respuesta);
-      $('#email').val(respuesta.Email);
-      $('#nombre').val(respuesta.Nombre);
-      $('#tel').val(respuesta.Tel);
-      $('#id').val(respuesta.Id);
-	  $('#clave').val(respuesta.Clave);
+      $('#email').val(respuesta.email);
+      $('#nombre').val(respuesta.nombre);
+      $('#tel').val(respuesta.telefono);
+      $('#id').val(respuesta.id_usuario);
+	  $('#clave').val(respuesta.clave);
       $('#exampleModal').modal('show');
     },
     error: function() {
