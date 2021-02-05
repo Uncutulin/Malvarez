@@ -57,12 +57,12 @@
             <div class="col-12 col-sm-6">
               <h3 class="d-inline-block d-sm-none">LOWA Men’s Renegade GTX Mid Hiking Boots Review</h3>
               <div class="col-12">
-                <img src="assets/img/depa1.jpg" class="product-image" alt="Product Image">
+                <img src="<?=base_url('../../assets/img/depa1.jpg')?>" class="product-image" alt="Product Image">
               </div>
               <div class="col-12 product-image-thumbs">
-                <div class="product-image-thumb"><img src="assets/img/casa1.jpg" alt="Product Image"></div>
-                <div class="product-image-thumb"><img src="assets/img/casa2.jpg" alt="Product Image"></div>
-                <div class="product-image-thumb"><img src="assets/img/ph1.jpg" alt="Product Image"></div>
+                <div class="product-image-thumb"><img src="<?=base_url('../../assets/img/casa1.jpg')?>" alt="Product Image"></div>
+                <div class="product-image-thumb"><img src="<?=base_url('../../assets/img/casa2.jpg')?>" alt="Product Image"></div>
+                <div class="product-image-thumb"><img src="<?=base_url('../../assets/img/ph1.jpg')?>" alt="Product Image"></div>
               </div>
             </div>
             <div class="col-12 col-sm-6">
