@@ -60,7 +60,7 @@ $route['catalogo'] = 'catalogo';
 $route['login'] = 'login';
 $route['validar'] = 'login/validarLogin';
 
-
+$route['detpropiedad/(:num)'] = 'detpropiedad/$1';
 
 
 //Tipo Propiedad Rutas
