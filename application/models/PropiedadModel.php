@@ -55,7 +55,7 @@ class PropiedadModel extends CI_Model {
 
 	public function getCiudades($id)
 	{
-        $this->db->where('id_ciudad', $id);
+        $this->db->where('id_departamento', $id);
         $query = $this->db->get('ciudad');
         return $query->result();
 	}

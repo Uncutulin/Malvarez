@@ -60,7 +60,7 @@ $route['catalogo'] = 'catalogo';
 $route['login'] = 'login';
 $route['validar'] = 'login/validarLogin';
 
-$route['propiedad'] = 'propiedad';
+
 
 
 //Tipo Propiedad Rutas
@@ -83,7 +83,9 @@ $route['adjuntoListado/(:num)'] = 'propiedad/ListadoAdjuntos/$1';
 
 
 //Propiedades
+$route['propiedad'] = 'propiedad';
 $route['postPropiedad'] = 'propiedad/postPropiedad';
+$route['buscarCiudades/(:num)'] = 'propiedad/getCiudades/$1';
 
 
 

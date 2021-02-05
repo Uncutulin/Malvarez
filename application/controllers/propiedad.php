@@ -79,5 +79,12 @@ class Propiedad extends CI_Controller {
 		redirect("../../Propiedad");	
 	}
 
+	public function getCiudades($id)
+	{
+		$this->load->model('PropiedadModel');			
+		$ciudades = $this->PropiedadModel->getCiudades($id);	
+		echo json_encode($ciudades);	
+	}
+
 
 }

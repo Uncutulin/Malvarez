@@ -38,15 +38,15 @@
                   <?php
                     foreach ($listadoPropiedad as $key => $value) {
                       echo "<tr>";
-                      echo "<td>".$value->IdProp."</td>";
-                      echo "<td>".$value->IdBarrio."</td>";
-                      echo "<td>".$value->Ubicacion."</td>";
-                      echo "<td>".$value->Condicion."</td>";
+                      echo "<td>".$value->id_propiedad."</td>";
+                      echo "<td>".$value->id_ciudad."</td>";
+                      echo "<td>".$value->ubicacion."</td>";
+                      echo "<td>".$value->condicion."</td>";
                       echo '<td class="text-center"><button type="button" class="btn btn-warning btn-sm">
                               <i class="fas fa-pen"></i>
                             </button></td>';                            
                       
-                      echo '<td class="text-center"><a type="button" class="btn btn-success btn-sm" href="'.site_url('../../adjuntoListado/'.$value->IdProp).'">
+                      echo '<td class="text-center"><a type="button" class="btn btn-success btn-sm" href="'.site_url('../../adjuntoListado/'.$value->id_propiedad).'">
                               <i class="fas fa-file-upload"></i>
                             </a></td>';
 

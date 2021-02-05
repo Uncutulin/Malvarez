@@ -14,7 +14,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>Propiedad</h1>
-            <input type="text" name="IdPropiedad" id="IdPropiedad" hidden="hidden" value="<?=$Propiedad->IdProp?>">
+            <input type="text" name="IdPropiedad" id="IdPropiedad" hidden="hidden" value="<?=$Propiedad->id_propiedad?>">
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -76,9 +76,9 @@
 
                 <strong><i class="far fa-file-alt mr-1"></i> Detalles</strong>
                 <ul class="text-muted">
-                  <li><b>Ambientes: </b><?=$Propiedad->Ambientes?></li>
-                  <li><b>Dormitorios: </b><?=$Propiedad->Dormitorios?></li>
-                  <li><b>baños: </b><?=$Propiedad->Banos?></li>
+                  <li><b>Ambientes: </b><?=$Propiedad->ambientes?></li>
+                  <li><b>Dormitorios: </b><?=$Propiedad->dormitorios?></li>
+                  <li><b>baños: </b><?=$Propiedad->banos?></li>
               </div>
               <!-- /.card-body -->
             </div>

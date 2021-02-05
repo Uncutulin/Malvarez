@@ -163,19 +163,17 @@
 
 
     $("#dependencia").change(function(){
-          var dependencia_id = $('#dependencia').val()
+          var dependencia_id = $('#dependencia').val();
           $.ajax({         
-          url: "<?=site_url('../../../BuscarCiudades/')?>"+dependencia_id,
-          method: 'POST',
-          data: datosMultimedia,
-          cache: false,
-          contentType: false,
-          processData: false,
+            url: "<?=site_url()?>/../../buscarCiudades/"+dependencia_id,
+            type: "GET",
+            dataType : 'json',
+            success: function(respuesta){
+              console.log(respuesta);
 
-          success: function(respuesta){
-            console.log()
-          }
-        });  
-            
+              //$('select[name=ListadoIntegrantes]').val(@Html.Raw(ViewBag.IntegrantesIDs));
+              //$('select[name=ListadoIntegrantes]').selectpicker("refresh");
+            }
+          });              
         });
 </script>
