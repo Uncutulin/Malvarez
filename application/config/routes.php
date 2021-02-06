@@ -56,6 +56,8 @@ $route['default_controller'] = 'home';
 $route['dashboard'] = 'admin';
 
 $route['catalogo'] = 'catalogo';
+$route['filtrarCatalogo'] = 'catalogo/getCatalogoFiltrado';
+
 
 $route['login'] = 'login';
 $route['validar'] = 'login/validarLogin';

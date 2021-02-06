@@ -169,10 +169,10 @@
             type: "GET",
             dataType : 'json',
             success: function(respuesta){
-              console.log(respuesta);
-
-              //$('select[name=ListadoIntegrantes]').val(@Html.Raw(ViewBag.IntegrantesIDs));
-              //$('select[name=ListadoIntegrantes]').selectpicker("refresh");
+              $("#ciudad").empty();              
+              $("#ciudad").select2({
+                data: respuesta
+              })
             }
           });              
         });

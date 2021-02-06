@@ -37,12 +37,15 @@
 		}
     </style>
 
+  <link rel="stylesheet" href="/<?=base_url('plugins/select2/css/select2.min.css')?>">
     <link href="/<?=base_url('')?>/assets/css/product.css" rel="stylesheet">
 
     <link href="/<?=base_url('')?>/assets/css/bootstrap.min.css" rel="stylesheet">
 
     
   <link rel="stylesheet" href="/<?=base_url('/plugins/fontawesome-free/css/all.min.css')?>">
+
+   <link rel="stylesheet" href="/<?=base_url('assets/css/select-propio.css')?>">
   </head>
   <body>
   
@@ -107,5 +110,7 @@
 
 
 
-    
+<script src="/<?=base_url('plugins/jquery/jquery.min.js')?>"></script>
  <script src="/<?=base_url('')?>/assets/js/bootstrap.bundle.min.js"></script>
+
+<script src="/<?=base_url('plugins/select2/js/select2.full.js')?>"></script>

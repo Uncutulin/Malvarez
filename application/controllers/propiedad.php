@@ -83,7 +83,15 @@ class Propiedad extends CI_Controller {
 	{
 		$this->load->model('PropiedadModel');			
 		$ciudades = $this->PropiedadModel->getCiudades($id);	
-		echo json_encode($ciudades);	
+		$lista = array();
+		foreach ($ciudades as $key => $value) {
+			$data = array(				
+        		'id' => $value->id_ciudad,
+        		'text' => $value->descripcion
+        	);
+			array_push($lista, $data);
+		}
+		echo json_encode($lista);	
 	}
 
 
