@@ -38,6 +38,7 @@ class Catalogo extends CI_Controller {
 
 		$this->load->view('sidebar/menu');
 		$this->load->view('catalogo/filtroCatalogo', $vista);
+		$this->load->view('sidebar/footer');
 	}
 
 	public function getCatalogoFiltrado()

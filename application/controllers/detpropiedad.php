@@ -8,6 +8,7 @@ class DetPropiedad extends CI_Controller {
 		
 		$this->load->view('sidebar/menu');
 		$this->load->view('detpropiedad/detpropiedad');
+		$this->load->view('sidebar/footer');	
 	}
 
 }
