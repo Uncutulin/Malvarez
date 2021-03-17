@@ -46,7 +46,7 @@ class TipoPropiedad extends CI_Controller {
 			$TipoPropiedad = $this->TipoPropiedadModel->getTipoPropiedad($id);			
 		}
 		//var_dump($TipoPropiedad);
-		echo $TipoPropiedad->Descripcion;
+		echo $TipoPropiedad->descripcion;
 	}
 
 	public function putTipoPropiedad(){
@@ -67,7 +67,7 @@ class TipoPropiedad extends CI_Controller {
 	public function putEnabledDisabledTipoPropiedad($id){
 		
 		$this->load->model('TipoPropiedadModel');
-		$activo = isset($_POST['Activo']) ? $_POST['Activo'] : NULL;
+		$activo = isset($_POST['activo']) ? $_POST['activo'] : NULL;
 		if($activo!=NULL){
 			if($activo==1){
 				$this->TipoPropiedadModel->disabledTipoPropiedad($id);	

@@ -12,7 +12,7 @@
           <input type="text" class="form-control" name="id" id="id" placeholder="id" hidden="hidden">
           <div class="form-group">
             <label for="nombre" >Nombre</label>
-            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" required>
+            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese nombre" required>
             <!--<div class="valid-feedback">Valido.</div>-->
             <div class="invalid-feedback">El campo esta vacio.</div>
           </div>  

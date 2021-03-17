@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Catalogo</title>
+    <title>M.Alvarez S.I</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Nose">
@@ -53,41 +53,49 @@
   <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Ninth navbar example">
     <div class="container-xl">
       <!--a class="navbar-brand" href="#">Proyecto A</a-->
-	  <a href="/sitio/"><img id="logo" src="/<?=base_url('')?>/assets/img/logo.png"></a>
-	  
-      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="navbar-collapse collapse" id="navbarsExample07XL" style="">
-        <ul class="navbar-nav" style="padding-left: 35%;">
-          <li class="nav-item active" style="padding-right: 100px;">
-            <a class="nav-link" aria-current="page" href="/<?=site_url('')?>">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" style="padding-right: 100px;" href="/<?=site_url('catalogo')?>">Catalogo</a>
-          </li>
-          <li class="nav-item">
-            <a class="ingresar nav-link" style="padding-right: 100px;color: #fff;" href="/<?=site_url('login')?>" tabindex="-1">Iniciar Sesión</a>
-          </li>
-          <!--
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-            <ul class="dropdown-menu" aria-labelledby="dropdown07XL">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-          -->
-        </ul>
+	  <div class="row" style="width: 100%;">
+		<div class="row">
+			<a href="/<?=site_url('')?>" style="width: auto;"><img id="logo" src="/<?=base_url('')?>/assets/img/logo.png"></a>
+		</div>
+		<hr>
+		<div class="row">	
+				<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+			
+				<div class="navbar-collapse collapse" id="navbarsExample07XL" style=""></div>
+			  
+				<ul class="navbar-nav" style="padding-left: 1%; padding-bottom: 1%;">
+				
+				  <li class="nav-item active" style="padding-right: 10%;">
+					<a class="nav-link" aria-current="page" href="/<?=site_url('')?>">Inicio</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" style="padding-right: 10%;" href="/<?=site_url('catalogo')?>">Propiedades</a>
+				  </li>
+				  <li class="nav-item" style="padding-left: 70%;">
+					<a class="ingresar nav-link" style="color: #fff;" href="/<?=site_url('login')?>" tabindex="-1">Inicio Sesión</a>
+				  </li>
+				  <!--
+				  <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+					<ul class="dropdown-menu" aria-labelledby="dropdown07XL">
+					  <li><a class="dropdown-item" href="#">Action</a></li>
+					  <li><a class="dropdown-item" href="#">Another action</a></li>
+					  <li><a class="dropdown-item" href="#">Something else here</a></li>
+					</ul>
+				  </li>
+				  -->
+				</ul>
+				</div>
         <!--
         <form>
           <input class="form-control" type="text" placeholder="Search" aria-label="Search">
         </form>
       -->
+		<hr>
+		</div>
       </div>
-    </div>
   </nav>
 </body>
       <!--

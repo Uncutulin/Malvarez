@@ -21,7 +21,7 @@
 		  <option class="red-input" value="0">Todas</option>
 		  <?php
 			foreach ($listadoTipoPropiedad as $key => $TipoPropiedades) {
-			  echo '<option class="red-input" value="'.$TipoPropiedades->Id.'">'.$TipoPropiedades->Descripcion.'</option>';
+			  echo '<option class="red-input" value="'.$TipoPropiedades->id_tipo_propiedad.'">'.$TipoPropiedades->descripcion.'</option>';
 			}
 		  ?>
 		</select>
