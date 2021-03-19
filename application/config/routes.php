@@ -56,11 +56,13 @@ $route['default_controller'] = 'home';
 $route['dashboard'] = 'admin';
 
 $route['catalogo'] = 'catalogo';
+$route['filtrarCatalogo'] = 'catalogo/getCatalogoFiltrado';
+
 
 $route['login'] = 'login';
 $route['validar'] = 'login/validarLogin';
 
-$route['propiedad'] = 'propiedad';
+$route['detpropiedad/(:num)'] = 'detpropiedad/$1';
 
 
 //Tipo Propiedad Rutas
@@ -69,10 +71,26 @@ $route['insertPropiedad'] = 'tipoPropiedad/postTipoPropiedad';
 $route['getTipoPropiedad/(:num)'] = 'tipoPropiedad/getTipoPropiedad/$1';
 $route['putEstadoTipoPropiedad/(:num)'] = 'tipoPropiedad/putEnabledDisabledTipoPropiedad/$1';
 
+
+//Usuarios
 $route['users'] = 'usuario';
 $route['insertUsuario'] = 'usuario/postUsuario';
 $route['getUsuario/(:num)'] = 'usuario/getUsuario/$1';
 $route['putEstadoUsuario/(:num)'] = 'usuario/putEnabledDisabledUsuario/$1';
+
+//Imagenes
+$route['ajuntoImagen/(:num)'] = 'adjunto/SubirImagen/$1';
+$route['adjuntoListado/(:num)'] = 'propiedad/ListadoAdjuntos/$1';
+$route['borrarImagen/(:num)/(:num)'] = 'adjunto/DeleteAdjunto/$1/$2';
+
+
+
+//Propiedades
+$route['propiedad'] = 'propiedad';
+$route['postPropiedad'] = 'propiedad/postPropiedad';
+$route['buscarCiudades/(:num)'] = 'propiedad/getCiudades/$1';
+
+
 
 
 $route['404_override'] = '';

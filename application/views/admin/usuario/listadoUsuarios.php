@@ -1,4 +1,3 @@
-
   <div class="content-wrapper">
     <div class="content-header">
       <div class="container-fluid">
@@ -12,7 +11,7 @@
 
     <section class="content">
       <div class="">    
-        <div class="card">
+        <div class="card card-danger card-outline">
           <div class="card-header border-0">
             <div class="d-flex justify-content-between">
               <h3 class="card-title">Listado de Usuarios</h3>
@@ -28,34 +27,48 @@
 				  <th scope="col">Nombre</th>
                   <th scope="col">Email</th>
 				  <th scope="col">Teléfono</th>
-				  <th scope="col">Fecha Creación</th>
-                  <th scope="col">Acciones</th>
+				  <th scope="col">Fecha Modificación</th>
+				  <th scope="col"><center>Estado</center></th>
+                  <th scope="col"><center>Modificar</center></th>
+				  <th scope="col"><center>Inhabilitar/Habilitar</center></th>
                 </tr>
               </thead>
               <tbody>                
-                 <?php
+                 <?php				   
 				   foreach ($listadoUsuario as $key => $value) {
+					   if($value->activo==1){
+						   $style = "color: black;";
+					   }elseif($value->activo==0){
+						   $style = "color: darkgray;";
+					   }
                       echo "<tr>";
-					  echo "<td>".$value->Nombre."</td>";
-                      echo "<td>".$value->Email."</td>";
-					  echo "<td>".$value->Tel."</td>";
-					  echo "<td>".$value->Fecha."</td>";
-                      echo '<td> 
-                        <button type="button" onclick="edit('.$value->Id.')" class="btn btn-warning btn-sm pop" data-toggle="popover">
+					  echo "<td style=\"".$style."\">".$value->nombre."</td>";
+                      echo "<td style=\"".$style."\">".$value->email."</td>";
+					  echo "<td style=\"".$style."\">".$value->telefono."</td>";
+					  echo "<td style=\"".$style."\">".$value->fecha."</td>";				
+					    if($value->activo==1){
+                          echo "<td style=\"".$style."\"><center>Activo</center></td>";
+                        }elseif($value->activo==0){
+                          echo "<td style=\"".$style."\"><center>Inhabilitado</center></td>";
+                        }
+                      echo '<td><center>
+                        <button type="button" onclick="edit('.$value->id_usuario.')" class="btn btn-warning btn-sm pop" data-toggle="popover">
                           <i class="fas fa-pen"></i>
                         </button>
                         &nbsp;';
-                        if($value->Activo==1){
-                          echo '<button type="button" class="btn btn-danger btn-sm" onclick="delet('.$value->Id.','.$value->Activo.')">
+					  echo '</center></td>';
+					  echo '<td><center>';
+                        if($value->activo==1){
+                          echo '<button type="button" class="btn btn-danger btn-sm" onclick="delet('.$value->id_usuario.','.$value->activo.')">
                                   <i class="fas fa-trash-alt"></i>
                                 </button>';
-                        }elseif($value->Activo==0){
-                          echo '<button type="button" class="btn btn-success btn-sm" onclick="delet('.$value->Id.','.$value->Activo.')">
+                        }elseif($value->activo==0){
+                          echo '<button type="button" class="btn btn-success btn-sm" onclick="delet('.$value->id_usuario.','.$value->activo.')">
                                   <i class="fas fa-check"></i>
                                 </button>';
                         }
-                        echo '</td>';
-						echo '</tr>';
+                      echo '</center></td>';
+					  echo '</tr>';
                     }
                   ?>            
               </tbody>
@@ -76,8 +89,11 @@ $(document).ready(function () {
 });
 
 $('#addUsuario').click(function(){
-    $('#nombre').val("");
+    $('#email').val("");
+	$('#nombre').val("");
+	$('#tel').val("");
     $('#id').val("");
+	$('#clave').val("");
     $('#exampleModal').modal('show');
 })
 
@@ -86,9 +102,14 @@ function edit(id){
   $.ajax({
     url: '<?=site_url()?>/../../getUsuario/'+id,
     type: "GET",
+    dataType : 'json',
     success: function(respuesta) {
-      $('#nombre').val(respuesta);
-      $('#id').val(id);
+      console.log(respuesta);
+      $('#email').val(respuesta.email);
+      $('#nombre').val(respuesta.nombre);
+      $('#tel').val(respuesta.telefono);
+      $('#id').val(respuesta.id_usuario);
+	  $('#clave').val(respuesta.clave);
       $('#exampleModal').modal('show');
     },
     error: function() {

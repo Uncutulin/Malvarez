@@ -8,7 +8,7 @@ class TipoPropiedadModel extends CI_Model {
 	{
 		$this->load->database();
 		if($filtroActivo){
-        	$this->db->where('Activo', 1);
+        	$this->db->where('activo', 1);
         }
         $query = $this->db->get('tipospropiedades');
         return $query->result();
@@ -17,7 +17,7 @@ class TipoPropiedadModel extends CI_Model {
 	public function getTipoPropiedad($id)
 	{
 		$this->load->database();
-        $query = $this->db->get_where('tipospropiedades', array('Id' => $id));
+        $query = $this->db->get_where('tipospropiedades', array('id_tipo_propiedad' => $id));
         return $query->result()[0];
 	}
 
@@ -30,22 +30,22 @@ class TipoPropiedadModel extends CI_Model {
 	public function putTipoPropiedad($id , $data)
 	{
 		$this->load->database();
-        $this->db->where('Id', $id);
+        $this->db->where('id_tipo_propiedad', $id);
 		$this->db->update('tipospropiedades', $data);
 	}
 
 	public function disabledTipoPropiedad($id)
 	{
 		$this->load->database();
-        $this->db->where('Id', $id);
-		$this->db->update('tipospropiedades', array('Activo' =>0));
+        $this->db->where('id_tipo_propiedad', $id);
+		$this->db->update('tipospropiedades', array('activo' =>0));
 	}
 
 	public function enabledTipoPropiedad($id)
 	{
 		$this->load->database();
-        $this->db->where('Id', $id);
-		$this->db->update('tipospropiedades', array('Activo' =>1));
+        $this->db->where('id_tipo_propiedad', $id);
+		$this->db->update('tipospropiedades', array('activo' =>1));
 	}
 
 
